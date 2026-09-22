@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>COOS — Navbar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF8F5; --cream-2:#F3EFE9; --line:#EDE8E1;
+    --ink:#26241F; --ink-2:#3A3833; --ink-soft:#6B6860;
+    --coral:#C4551A; --coral-dark:#A0430F; --coral-soft:#E88C4D;
+    --shadow:0 12px 40px rgba(38,36,31,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Figtree',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased}
+
+  /* ---------- Bar ---------- */
+  .nav{position:sticky;top:0;z-index:100;background:rgba(250,248,245,.92);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+  .nav__inner{max-width:1200px;margin:0 auto;height:68px;padding:0 24px;display:flex;align-items:center;gap:32px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:600;font-size:16px;letter-spacing:-.01em;color:var(--ink);text-decoration:none;white-space:nowrap;flex-shrink:0}
+  .brand .mark{width:30px;height:30px;border-radius:50%;background:var(--coral);position:relative;flex-shrink:0}
+  .brand .mark:after{content:"";position:absolute;inset:0;margin:auto;width:4px;height:15px;background:var(--cream);border-radius:2px}
+  .brand .mark:before{content:"";position:absolute;inset:0;margin:auto;width:13px;height:4px;background:var(--cream);border-radius:2px}
+
+  .menu{display:flex;align-items:center;gap:2px;height:100%;flex:1}
+  .item{position:relative;height:100%;display:flex;align-items:center}
+  .item>button,.item>a{font:inherit;font-size:15px;font-weight:500;color:var(--ink-2);background:none;border:0;cursor:pointer;padding:8px 14px;border-radius:8px;display:flex;align-items:center;gap:5px;text-decoration:none;transition:color .15s,background .15s}
+  .item>button:hover,.item>a:hover,.item.open>button{color:var(--coral);background:var(--cream-2)}
+  .item>button svg{width:13px;height:13px;transition:transform .2s;opacity:.6}
+  .item.open>button svg{transform:rotate(180deg)}
+
+  .actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .btn-ghost{font-size:15px;font-weight:500;color:var(--ink-2);text-decoration:none;padding:9px 14px;border-radius:9px;transition:color .15s,background .15s}
+  .btn-ghost:hover{color:var(--coral);background:var(--cream-2)}
+  .btn-solid{font-size:15px;font-weight:600;color:var(--cream);background:var(--coral);text-decoration:none;padding:10px 20px;border-radius:9px;transition:background .15s}
+  .btn-solid:hover{background:var(--coral-dark)}
+
+  /* ---------- Dropdown ---------- */
+  .panel{position:absolute;top:calc(100% - 4px);left:0;min-width:520px;background:var(--cream);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s,transform .18s,visibility .18s}
+  .item.open .panel{opacity:1;visibility:visible;transform:translateY(0)}
+  .panel--wide{min-width:640px}
+  .panel--right{left:auto;right:0}
+  .cols{display:grid;gap:22px}
+  .cols-2{grid-template-columns:1fr 1fr}
+  .col-h{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--coral);margin:0 8px 10px}
+  .lnk{display:block;padding:8px;border-radius:9px;text-decoration:none;transition:background .13s}
+  .lnk:hover{background:var(--cream-2)}
+  .lnk .t{display:block;font-size:14.5px;font-weight:500;color:var(--ink)}
+  .lnk .d{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:1px;line-height:1.35}
+  .lnk:hover .t{color:var(--coral)}
+
+  .feature{background:var(--ink);border-radius:12px;padding:18px;text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end;min-height:100%}
+  .feature .k{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--coral-soft)}
+  .feature .h{font-size:18px;font-weight:600;color:var(--cream);margin:6px 0 4px;letter-spacing:-.01em}
+  .feature .s{font-size:13px;color:#C9C5BC;line-height:1.4}
+
+  /* ---------- Mobile ---------- */
+  .burger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px;border-radius:8px}
+  .burger:hover{background:var(--cream-2)}
+  .burger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.2s}
+  .burger span+span{margin-top:5px}
+  .mobile{display:none}
+
+  @media(max-width:960px){
+    .menu,.actions{display:none}
+    .burger{display:block}
+    .nav__inner{gap:0}
+    .mobile{display:block;position:fixed;inset:68px 0 0;background:var(--cream);overflow-y:auto;padding:16px 20px 40px;transform:translateX(100%);transition:transform .25s;z-index:99}
+    .mobile.open{transform:translateX(0)}
+    .m-sec{border-bottom:1px solid var(--line)}
+    .m-sec>button{width:100%;font:inherit;font-size:17px;font-weight:600;color:var(--ink);background:none;border:0;padding:16px 4px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+    .m-sec>button svg{width:15px;height:15px;transition:transform .2s;opacity:.5}
+    .m-sec.open>button svg{transform:rotate(180deg)}
+    .m-body{display:none;padding:0 4px 14px}
+    .m-sec.open .m-body{display:block}
+    .m-body a{display:block;padding:9px 0;font-size:15px;color:var(--ink-2);text-decoration:none}
+    .m-body a .d{display:block;font-size:12.5px;color:var(--ink-soft)}
+    .m-body .grp{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--coral);margin:12px 0 2px}
+    .m-cta{display:flex;gap:10px;margin-top:22px}
+    .m-cta a{flex:1;text-align:center;padding:13px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none}
+    .m-cta .g{background:var(--cream-2);color:var(--ink)}
+    .m-cta .s{background:var(--coral);color:var(--cream)}
+  }
+
+  /* demo page under the bar */
+  .demo{max-width:1200px;margin:0 auto;padding:80px 24px;text-align:center}
+  .demo .k{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
+  .demo h1{font-size:clamp(34px,6vw,60px);font-weight:600;letter-spacing:-.02em;margin:14px 0 0;line-height:1.05}
+  .demo p{color:var(--ink-soft);font-size:17px;margin-top:16px;max-width:520px;margin-inline:auto;line-height:1.5}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="brand" href="/"><span class="mark"></span>Church of Our Saviour</a>
+
+    <nav class="menu">
+      <!-- NEW HERE -->
+      <div class="item" data-menu>
+        <button>New Here <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button>
+        <div class="panel panel--wide">
+          <div class="cols cols-2">
+            <div>
+              <div class="col-h">Plan your visit</div>
+              <a class="lnk" href="/new/plan-your-visit/what-to-expect/"><span class="t">What to expect</span><span class="d">No form, no dress code, nothing expected</span></a>
+              <a class="lnk" href="/new/plan-your-visit/getting-here/"><span class="t">Getting here & parking</span><span class="d">130 Margaret Drive · 10 min from Queenstown MRT</span></a>
+              <a class="lnk" href="/new/plan-your-visit/with-kids/"><span class="t">Coming with kids</span><span class="d">COOSkidz check-in, age bands</span></a>
+              <a class="lnk" href="/new/service-times/"><span class="t">Service times</span><span class="d">Both campuses · all languages</span></a>
+            </div>
+            <a class="feature" href="/new/next-step/">
+              <span class="k">Your next step</span>
+              <span class="h">There's a place for you here</span>
+              <span class="s">Say hello, try Alpha, or find a group — whatever feels right first.</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONNECT -->
+      <div class="item" data-menu>
+        <button>Connect <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button>
+        <div class="panel panel--wide">
+          <div class="cols cols-2">
+            <div>
+              <div class="col-h">Find community</div>
+              <a class="lnk" href="/connect/groups/"><span class="t">Groups directory</span><span class="d">Browse by interest, age or life stage</span></a>
+              <a class="lnk" href="/connect/alpha/"><span class="t">Alpha</span><span class="d">Explore faith, no pressure</span></a>
+              <a class="lnk" href="/connect/heyfam/"><span class="t">Families — Hey!FAM</span><span class="d">Parenting, marriage, family life</span></a>
+              <a class="lnk" href="/connect/baptism-membership/"><span class="t">Baptism & membership</span></a>
+            </div>
+            <div>
+              <div class="col-h">By life stage</div>
+              <a class="lnk" href="/connect/kids/"><span class="t">Kids</span></a>
+              <a class="lnk" href="/connect/youth/"><span class="t">Youth</span></a>
+              <a class="lnk" href="/connect/young-adults/"><span class="t">Young adults</span></a>
+              <a class="lnk" href="/connect/adults/"><span class="t">Adults</span></a>
+              <a class="lnk" href="/connect/evergreen/"><span class="t">Seniors — Evergreen</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARE -->
+      <div class="item" data-menu>
+        <button>Care <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button>
+        <div class="panel">
+          <div class="cols">
+            <div>
+              <div class="col-h">We're here for you</div>
+              <a class="lnk" href="/care/prayer-request/"><span class="t">Request prayer</span><span class="d">Someone will pray with you this week</span></a>
+              <a class="lnk" href="/care/counselling/"><span class="t">Counselling</span></a>
+              <a class="lnk" href="/care/healing/"><span class="t">Healing & healing rooms</span></a>
+              <a class="lnk" href="/care/healing/inner-healing-deliverance/"><span class="t">Inner healing & deliverance</span></a>
+              <a class="lnk" href="/care/choices/"><span class="t">Choices ministry</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GROW -->
+      <div class="item" data-menu>
+        <button>Grow <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button>
+        <div class="panel">
+          <div class="cols">
+            <div>
+              <div class="col-h">Resources</div>
+              <a class="lnk" href="/grow/sermons/"><span class="t">Sermon library</span><span class="d">Watch, listen, read the notes</span></a>
+              <a class="lnk" href="/grow/articles/"><span class="t">Articles</span></a>
+              <a class="lnk" href="/grow/stories/"><span class="t">Stories & testimonies</span></a>
+              <a class="lnk" href="/grow/events/"><span class="t">What's on</span><span class="d">Upcoming events & calendar</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVE & ABOUT -->
+      <div class="item" data-menu>
+        <button>Serve & About <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button>
+        <div class="panel panel--wide panel--right">
+          <div class="cols cols-2">
+            <div>
+              <div class="col-h">Serve</div>
+              <a class="lnk" href="/serve/join-a-team/"><span class="t">Join a team</span><span class="d">Ways to volunteer & belong</span></a>
+              <a class="lnk" href="/serve/missions/"><span class="t">Missions</span></a>
+              <a class="lnk" href="/give/"><span class="t">Give</span></a>
+            </div>
+            <div>
+              <div class="col-h">About</div>
+              <a class="lnk" href="/about/beliefs/"><span class="t">What we believe</span></a>
+              <a class="lnk" href="/about/vision/"><span class="t">Our vision</span></a>
+              <a class="lnk" href="/about/history/"><span class="t">Our story</span></a>
+              <a class="lnk" href="/about/team/"><span class="t">Our team</span></a>
+              <a class="lnk" href="/contact-us/"><span class="t">Contact us</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="actions">
+      <a class="btn-ghost" href="/live-service-portal/">Watch live</a>
+      <a class="btn-solid" href="/give/">Give</a>
+    </div>
+
+    <button class="burger" aria-label="Menu" data-burger><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="mobile" data-mobile>
+  <div class="m-sec"><button>New Here <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button>
+    <div class="m-body">
+      <a href="/new/plan-your-visit/what-to-expect/">What to expect<span class="d">No form, no dress code</span></a>
+      <a href="/new/plan-your-visit/getting-here/">Getting here & parking</a>
+      <a href="/new/plan-your-visit/with-kids/">Coming with kids</a>
+      <a href="/new/service-times/">Service times</a>
+      <a href="/new/next-step/">Your next step</a>
+    </div></div>
+  <div class="m-sec"><button>Connect <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button>
+    <div class="m-body">
+      <div class="grp">Find community</div>
+      <a href="/connect/groups/">Groups directory</a>
+      <a href="/connect/alpha/">Alpha</a>
+      <a href="/connect/heyfam/">Families — Hey!FAM</a>
+      <a href="/connect/baptism-membership/">Baptism & membership</a>
+      <div class="grp">By life stage</div>
+      <a href="/connect/kids/">Kids</a>
+      <a href="/connect/youth/">Youth</a>
+      <a href="/connect/young-adults/">Young adults</a>
+      <a href="/connect/adults/">Adults</a>
+      <a href="/connect/evergreen/">Seniors — Evergreen</a>
+    </div></div>
+  <div class="m-sec"><button>Care <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button>
+    <div class="m-body">
+      <a href="/care/prayer-request/">Request prayer</a>
+      <a href="/care/counselling/">Counselling</a>
+      <a href="/care/healing/">Healing & healing rooms</a>
+      <a href="/care/healing/inner-healing-deliverance/">Inner healing & deliverance</a>
+      <a href="/care/choices/">Choices ministry</a>
+    </div></div>
+  <div class="m-sec"><button>Grow <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button>
+    <div class="m-body">
+      <a href="/grow/sermons/">Sermon library</a>
+      <a href="/grow/articles/">Articles</a>
+      <a href="/grow/stories/">Stories & testimonies</a>
+      <a href="/grow/events/">What's on</a>
+    </div></div>
+  <div class="m-sec"><button>Serve & About <svg viewBox="0 0 12 12"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button>
+    <div class="m-body">
+      <div class="grp">Serve</div>
+      <a href="/serve/join-a-team/">Join a team</a>
+      <a href="/serve/missions/">Missions</a>
+      <a href="/give/">Give</a>
+      <div class="grp">About</div>
+      <a href="/about/beliefs/">What we believe</a>
+      <a href="/about/vision/">Our vision</a>
+      <a href="/about/history/">Our story</a>
+      <a href="/about/team/">Our team</a>
+      <a href="/contact-us/">Contact us</a>
+    </div></div>
+  <div class="m-cta">
+    <a class="g" href="/live-service-portal/">Watch live</a>
+    <a class="s" href="/give/">Give</a>
+  </div>
+</div>
+
+<main class="demo">
+  <div class="k">Church of Our Saviour</div>
+  <h1>There's a place for you here</h1>
+  <p>Your homepage content sits here. The bar above is a drop-in header — hover the items on desktop, or resize the window below 960px to see the mobile drawer.</p>
+</main>
+
+<script>
+  // Desktop: click to toggle, hover to open, outside-click / Esc to close
+  const items=[...document.querySelectorAll('[data-menu]')];
+  function closeAll(except){items.forEach(i=>{if(i!==except)i.classList.remove('open')})}
+  items.forEach(item=>{
+    const btn=item.querySelector('button');
+    btn.addEventListener('click',e=>{e.stopPropagation();const o=item.classList.contains('open');closeAll();item.classList.toggle('open',!o)});
+    item.addEventListener('mouseenter',()=>{if(window.innerWidth>960){closeAll(item);item.classList.add('open')}});
+    item.addEventListener('mouseleave',()=>{if(window.innerWidth>960)item.classList.remove('open')});
+  });
+  document.addEventListener('click',()=>closeAll());
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAll();document.querySelector('[data-mobile]').classList.remove('open')}});
+
+  // Mobile
+  const burger=document.querySelector('[data-burger]'),mobile=document.querySelector('[data-mobile]');
+  burger.addEventListener('click',()=>mobile.classList.toggle('open'));
+  document.querySelectorAll('.m-sec>button').forEach(b=>b.addEventListener('click',()=>b.parentElement.classList.toggle('open')));
+</script>
+</body>
+</html>
