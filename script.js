@@ -85,4 +85,61 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // 3. Scrollytelling: Swap pinned bg + caption as each step crosses viewport center
+  (function () {
+    const root = document.getElementById('scrolly');
+    if (!root) return;
+    const bgWrap = root.querySelector('.scrolly__bg');
+    const hEl = root.querySelector('[data-h]');
+    const pEl = root.querySelector('[data-p]');
+    const steps = [...root.querySelectorAll('[data-step]')];
+    const imgCache = {};
+    function getImg(src) {
+      if (imgCache[src]) return imgCache[src];
+      const img = document.createElement('img');
+      img.src = src;
+      img.setAttribute('data-bg', '');
+      bgWrap.appendChild(img);
+      imgCache[src] = img;
+      return img;
+    }
+    // preload first image as active
+    const first = bgWrap ? bgWrap.querySelector('img[data-bg]') : null;
+    if (first && steps[0]) {
+      imgCache[steps[0].dataset.img] = first;
+      first.classList.add('is-active');
+    }
+
+    let current = null;
+    function activate(step) {
+      if (current === step) return;
+      current = step;
+      const src = step.dataset.img;
+      const img = getImg(src);
+      if (bgWrap) {
+        bgWrap.querySelectorAll('img').forEach(i => i.classList.remove('is-active'));
+      }
+      img.classList.add('is-active');
+      if (hEl && pEl) {
+        hEl.style.opacity = 0;
+        pEl.style.opacity = 0;
+        hEl.style.transform = 'translateY(8px)';
+        pEl.style.transform = 'translateY(8px)';
+        setTimeout(() => {
+          hEl.textContent = step.dataset.title;
+          pEl.textContent = step.dataset.text;
+          hEl.style.opacity = 1;
+          pEl.style.opacity = 1;
+          hEl.style.transform = 'translateY(0)';
+          pEl.style.transform = 'translateY(0)';
+        }, 160);
+      }
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) activate(e.target);
+      });
+    }, { threshold: 0, rootMargin: '-45% 0px -45% 0px' });
+    steps.forEach(s => io.observe(s));
+  })();
 });
