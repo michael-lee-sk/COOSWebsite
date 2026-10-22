@@ -1334,8 +1334,9 @@ img {
 .photo-hero {
   position: relative;
   width: 100%;
-  height: min(78vh, 640px);
-  min-height: 380px;
+  height: calc(100vh - 68px);
+  height: calc(100svh - 68px);
+  min-height: 540px;
   overflow: hidden;
 }
 
@@ -1355,7 +1356,7 @@ img {
 }
 
 .photo-hero__overlay .wrap {
-  padding-bottom: 48px;
+  padding-bottom: 64px;
   width: 100%;
 }
 
@@ -1589,7 +1590,7 @@ img {
   align-items: center;
   gap: 28px;
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 @media (max-width: 860px) {
@@ -1755,7 +1756,7 @@ img {
 .response-inner {
   position: relative;
   z-index: 2;
-  max-width: 840px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 60px 24px;
   text-align: center;
@@ -1773,12 +1774,13 @@ img {
 }
 
 .response-h {
+  max-width: 840px;
   font-size: clamp(30px, 4.5vw, 48px);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--text-light);
-  margin-bottom: 16px;
+  margin: 0 auto 16px;
 }
 
 .response-p {
