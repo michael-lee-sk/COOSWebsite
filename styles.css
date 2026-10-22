@@ -1454,17 +1454,34 @@ img {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   background: linear-gradient(0deg, rgba(20, 19, 16, .78) 0%, rgba(20, 19, 16, .35) 45%, rgba(20, 19, 16, 0) 75%);
 }
 
 .photo-hero__overlay .wrap {
-  padding-bottom: 64px;
+  padding-top: 48px;
+  padding-bottom: 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
 }
 
 .photo-hero__overlay h1 {
+  font-size: clamp(32px, 2.1vw, 38px);
   max-width: 16ch;
+}
+
+.photo-hero__overlay .btn {
+  padding: 10px 18px;
+  font-size: 14px;
+}
+
+.photo-hero__overlay .lede {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-top: 10px;
 }
 
 .eyebrow {
@@ -1729,7 +1746,7 @@ img {
     gap: 4px;
   }
   .photo-hero__overlay .wrap {
-    padding-bottom: 32px;
+    padding-top: 32px;
   }
 }
 
