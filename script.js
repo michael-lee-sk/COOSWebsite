@@ -55,6 +55,28 @@ document.addEventListener('DOMContentLoaded', function () {
     b.addEventListener('click', () => b.parentElement.classList.toggle('open'));
   });
 
+  const ministryScroller = document.querySelector('.ministries-stack');
+  if (ministryScroller) {
+    ministryScroller.addEventListener('wheel', event => {
+      if (event.ctrlKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+
+      let delta = event.deltaY;
+      if (event.deltaMode === WheelEvent.DOM_DELTA_LINE) delta *= 16;
+      if (event.deltaMode === WheelEvent.DOM_DELTA_PAGE) delta *= ministryScroller.clientWidth;
+
+      const maxScrollLeft = ministryScroller.scrollWidth - ministryScroller.clientWidth;
+      const edgeTolerance = 4;
+      const canScroll = delta > 0
+        ? ministryScroller.scrollLeft < maxScrollLeft - edgeTolerance
+        : ministryScroller.scrollLeft > edgeTolerance;
+
+      if (canScroll) {
+        event.preventDefault();
+        ministryScroller.scrollLeft += delta;
+      }
+    }, { passive: false });
+  }
+
   // 2. Cookie Consent Banner Handling
   const cookieBanner = document.getElementById('cookieBanner');
   const cookieDecline = document.getElementById('cookieDecline');

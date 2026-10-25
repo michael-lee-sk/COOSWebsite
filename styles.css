@@ -1474,8 +1474,24 @@ img {
 }
 
 .photo-hero__overlay .btn {
-  padding: 10px 18px;
-  font-size: 14px;
+  width: 278px;
+  max-width: 100%;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+.photo-hero__overlay .btn-dark {
+  border: 0;
+  background: var(--accent);
+  color: var(--text-light);
+}
+
+.photo-hero__overlay .btn-dark:hover {
+  background: var(--accent-hover);
+  color: var(--text-light);
 }
 
 .photo-hero__overlay .lede {
@@ -1503,6 +1519,8 @@ img {
 
 .cta-row {
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 26px;
@@ -1755,17 +1773,24 @@ img {
    ========================================================================== */
 .ministries-stack {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   margin-top: 32px;
+  padding: 2px 2px 16px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--bg-subtle);
 }
 
 .ministry-hcard {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 1fr;
+  flex: 0 0 clamp(300px, 34vw, 390px);
+  scroll-snap-align: start;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -1779,7 +1804,7 @@ img {
 
 .ministry-img-wrap {
   position: relative;
-  min-height: 200px;
+  aspect-ratio: 16 / 10;
   background: var(--bg-dark);
 }
 
@@ -1790,26 +1815,12 @@ img {
   display: block;
 }
 
-.ministry-badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(28, 27, 25, 0.75);
-  backdrop-filter: blur(8px);
-  color: var(--text-light);
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-
 .ministry-content {
-  padding: 24px 28px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1;
 }
 
 .ministry-title {
@@ -1850,14 +1861,17 @@ img {
 }
 
 @media (max-width: 860px) {
-  .ministry-hcard {
-    grid-template-columns: 1fr;
-  }
   .ministry-img-wrap {
-    height: 200px;
+    min-height: 0;
   }
   .ministry-content {
     padding: 20px;
+  }
+}
+
+@media (max-width: 720px) {
+  .ministry-hcard {
+    flex-basis: min(82vw, 360px);
   }
 }
 
