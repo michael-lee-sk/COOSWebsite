@@ -127,8 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // preload first image as active
     const first = bgWrap ? bgWrap.querySelector('img[data-bg]') : null;
-    if (first && steps[0]) {
-      imgCache[steps[0].dataset.img] = first;
+    if (first) {
       first.classList.add('is-active');
     }
 

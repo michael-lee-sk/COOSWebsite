@@ -1704,6 +1704,7 @@ img {
 
 .first-visit-content .cta-row {
   justify-content: center;
+  align-items: center;
 }
 
 .steps {
