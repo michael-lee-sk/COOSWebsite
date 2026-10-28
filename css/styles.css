@@ -1709,25 +1709,21 @@ img {
 }
 
 /* ==========================================================================
-   4 Horizontal Ministry Category Cards & Full Page Response Banner
+  4 Ministry Category Grid & Full Page Response Banner
    ========================================================================== */
 .ministries-stack {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: 16px;
   margin-top: 32px;
   padding: 2px 2px 16px;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent) var(--bg-subtle);
 }
 
 .ministry-hcard {
   display: grid;
   grid-template-columns: 1fr;
-  flex: 0 0 clamp(300px, 34vw, 390px);
-  scroll-snap-align: start;
+  min-width: 0;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -1745,10 +1741,14 @@ img {
 .ministry-img-wrap {
   position: relative;
   aspect-ratio: 16 / 10;
+  min-height: 0;
+  overflow: hidden;
   background: var(--bg-dark);
 }
 
 .ministry-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1759,7 +1759,7 @@ img {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   flex: 1;
 }
 
@@ -1791,6 +1791,7 @@ img {
   padding: 7px 14px;
   border-radius: 20px;
   text-decoration: none;
+  overflow-wrap: anywhere;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
@@ -1801,17 +1802,8 @@ img {
 }
 
 @media (max-width: 860px) {
-  .ministry-img-wrap {
-    min-height: 0;
-  }
   .ministry-content {
     padding: 20px;
-  }
-}
-
-@media (max-width: 720px) {
-  .ministry-hcard {
-    flex-basis: min(82vw, 360px);
   }
 }
 

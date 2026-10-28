@@ -32,7 +32,7 @@ An internet connection is needed for externally hosted fonts, images, maps, and 
 - **Plan a visit:** service schedules for Margaret Drive and Jurong, embedded maps, and links to directions.
 - **Watch online:** link to COOS's YouTube channel for the livestream.
 - **What's on and messages:** event and recent-sermon listings.
-- **Ministry categories:** children, youth, adult, and Filipino ministry information in a horizontally scrollable section. On desktop, the mouse wheel scrolls this section horizontally while it can scroll further.
+- **Ministry categories:** children, youth, adult, and Filipino ministry information in a two-column grid.
 - **Cookie choice:** Accept and Decline both dismiss the banner and save the choice in browser storage, so it remains dismissed on later visits in that browser.
 - **Contact links:** phone links and in-page navigation to key sections.
 
