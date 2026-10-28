@@ -826,8 +826,7 @@ img {
 }
 
 .campus-card-details .map-iframe {
-  height: 100%;
-  min-height: 150px;
+  height: 280px;
   border-radius: 8px;
 }
 
@@ -1954,8 +1953,7 @@ img {
   }
 
   .campus-card-details .map-iframe {
-    height: 120px;
-    min-height: 0;
+    height: 180px;
   }
 
   .campus-schedule {
