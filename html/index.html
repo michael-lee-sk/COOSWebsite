@@ -14,7 +14,7 @@
     rel="stylesheet">
 
   <!-- External Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=20261025-1">
+  <link rel="stylesheet" href="../css/styles.css?v=20261025-1">
 </head>
 
 <body>
@@ -23,18 +23,7 @@
   <header class="nav">
     <div class="nav__inner">
       <a class="brand" href="index.html">
-        <svg class="flame-icon-sm" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M12 0C12 0 15.5 4.5 15.5 8C15.5 10 14.5 11.5 13.5 12.5C16.5 12.5 21 15 21 20C21 24.5 17 28 12 28C7 28 3 24.5 3 20C3 15 7 11 10 9.5C9.5 8 9 6.5 9 5C9 2.5 12 0 12 0Z"
-            fill="#D9531E" />
-          <path
-            d="M12 10C12 10 14 12.5 14 15C14 16.5 13 17.5 12 18.5C14 18.5 16.5 20 16.5 22.5C16.5 25 14.5 27 12 27C9.5 27 7.5 25 7.5 19.5 10 17 11.5 16C11 15 10.5 14 10.5 13C10.5 11.5 12 10 12 10Z"
-            fill="#F49226" />
-        </svg>
-        <div class="nav-logo-text">
-          <span class="nav-logo-coos">coos</span>
-          <span class="nav-logo-sub">CHURCH OF OUR SAVIOUR</span>
-        </div>
+        <img class="brand-logo" src="../images/coos-logo.png" alt="Church of Our Saviour" />
       </a>
       <nav class="menu">
         <div class="item" data-menu>
@@ -96,6 +85,7 @@
             </div>
           </div>
         </div>
+        <div class="item"><a href="#give">Give</a></div>
         <div class="item" data-menu>
           <button>Serve &amp; About <svg viewBox="0 0 12 12">
               <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" />
@@ -106,7 +96,6 @@
                 <div class="col-h">Serve</div>
                 <a class="lnk" href="#church"><span class="t">Join a team</span></a>
                 <a class="lnk" href="#church"><span class="t">Missions</span></a>
-                <a class="lnk" href="#give"><span class="t">Give</span></a>
               </div>
               <div>
                 <div class="col-h">About</div>
@@ -120,9 +109,6 @@
           </div>
         </div>
       </nav>
-      <div class="actions">
-        <a class="btn-solid" href="#give">Give</a>
-      </div>
       <button class="burger" aria-label="Menu" data-burger><span></span><span></span><span></span></button>
     </div>
   </header>
@@ -150,6 +136,7 @@
       <div class="m-body"><a href="#whatson">Sermon library</a><a href="#whatson">Articles</a><a
           href="#whatson">Stories</a><a href="#whatson">What's on</a></div>
     </div>
+    <div class="m-sec"><a class="m-link" href="#give">Give</a></div>
     <div class="m-sec"><button>Serve &amp; About <svg viewBox="0 0 12 12">
           <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" />
         </svg></button>
@@ -157,7 +144,6 @@
           href="#church">What we believe</a><a href="#church">Our vision</a><a href="#church">Our story</a><a
           href="#church">Our team</a><a href="#give">Contact us</a></div>
     </div>
-    <div class="m-cta"><a class="s" href="#give">Give</a></div>
   </div>
 
   <!-- Main Content Wrapper -->
@@ -257,7 +243,7 @@
           <h2 class="disp h2">Are You New?</h2>
           <p class="sub">We know walking into a church for the first time can feel daunting. If you are a first time visitor, click on the button below!</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#services">I'm New!</a>
+            <a class="btn btn-primary" href="https://coos.org.sg/hello/">I'm New!</a>
           </div>
         </div>
       </div>
@@ -567,18 +553,7 @@
         <!-- Logo & Social Column -->
         <div class="footer-brand">
           <a href="index.html" class="footer-logo">
-            <svg class="flame-icon" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 0C12 0 15.5 4.5 15.5 8C15.5 10 14.5 11.5 13.5 12.5C16.5 12.5 21 15 21 20C21 24.5 17 28 12 28C7 28 3 24.5 3 20C3 15 7 11 10 9.5C9.5 8 9 6.5 9 5C9 2.5 12 0 12 0Z"
-                fill="#D9531E" />
-              <path
-                d="M12 10C12 10 14 12.5 14 15C14 16.5 13 17.5 12 18.5C14 18.5 16.5 20 16.5 22.5C16.5 25 14.5 27 12 27C9.5 27 7.5 25 7.5 22.5C7.5 19.5 10 17 11.5 16C11 15 10.5 14 10.5 13C10.5 11.5 12 10 12 10Z"
-                fill="#F49226" />
-            </svg>
-            <div class="logo-text-group">
-              <span class="logo-coos">coos</span>
-              <span class="logo-sub">CHURCH OF OUR SAVIOUR</span>
-            </div>
+            <img class="footer-logo-img" src="../images/coos-logo.png" alt="Church of Our Saviour" />
           </a>
           <div class="social-links">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
@@ -679,7 +654,7 @@
   </div>
 
   <!-- External Script -->
-  <script src="script.js?v=20261027-1"></script>
+  <script src="../js/script.js?v=20261027-1"></script>
 </body>
 
 </html>

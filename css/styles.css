@@ -255,7 +255,7 @@ img {
 .brand {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 0;
   font-weight: 600;
   font-size: 16px;
   letter-spacing: -.01em;
@@ -265,33 +265,11 @@ img {
   flex-shrink: 0;
 }
 
-.flame-icon-sm {
-  width: 26px;
-  height: 30px;
+.brand-logo {
+  display: block;
+  width: 126px;
+  height: auto;
   flex-shrink: 0;
-}
-
-.nav-logo-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.nav-logo-coos {
-  font-family: var(--font-disp);
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 0.95;
-  color: var(--text-primary);
-  letter-spacing: -0.03em;
-}
-
-.nav-logo-sub {
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: #D9531E;
-  text-transform: uppercase;
-  margin-top: 1px;
 }
 
 .menu {
@@ -580,6 +558,15 @@ img {
     cursor: pointer
   }
 
+  .m-sec>.m-link {
+    display: block;
+    padding: 16px 4px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none
+  }
+
   .m-sec>button svg {
     width: 15px;
     height: 15px;
@@ -623,31 +610,6 @@ img {
     margin: 12px 0 2px
   }
 
-  .m-cta {
-    display: flex;
-    gap: 10px;
-    margin-top: 22px
-  }
-
-  .m-cta a {
-    flex: 1;
-    text-align: center;
-    padding: 13px;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none
-  }
-
-  .m-cta .g {
-    background: var(--cream-2);
-    color: var(--ink)
-  }
-
-  .m-cta .s {
-    background: var(--coral);
-    color: var(--cream)
-  }
 }
 
 .header-actions {
@@ -1195,36 +1157,14 @@ img {
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0;
 }
 
-.flame-icon {
-  width: 32px;
-  height: 36px;
-  flex-shrink: 0;
-}
-
-.logo-text-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.logo-coos {
-  font-family: var(--font-disp);
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1;
-  color: #1C1B19;
-  letter-spacing: -0.03em;
-}
-
-.logo-sub {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #D9531E;
-  text-transform: uppercase;
-  margin-top: 2px;
+.footer-logo-img {
+  display: block;
+  width: 150px;
+  max-width: 100%;
+  height: auto;
 }
 
 .social-links {

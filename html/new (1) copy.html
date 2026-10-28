@@ -10,7 +10,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
   <style>
     :root {
       --cream: #FAF8F5;
@@ -430,6 +430,15 @@
         cursor: pointer
       }
 
+      .m-sec>.m-link {
+        display: block;
+        padding: 16px 4px;
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--ink);
+        text-decoration: none
+      }
+
       .m-sec>button svg {
         width: 15px;
         height: 15px;
@@ -473,31 +482,6 @@
         margin: 12px 0 2px
       }
 
-      .m-cta {
-        display: flex;
-        gap: 10px;
-        margin-top: 22px
-      }
-
-      .m-cta a {
-        flex: 1;
-        text-align: center;
-        padding: 13px;
-        border-radius: 10px;
-        font-size: 15px;
-        font-weight: 600;
-        text-decoration: none
-      }
-
-      .m-cta .g {
-        background: var(--cream-2);
-        color: var(--ink)
-      }
-
-      .m-cta .s {
-        background: var(--coral);
-        color: var(--cream)
-      }
     }
 
     /* ---------- Scrollytelling ---------- */
@@ -793,6 +777,7 @@
             </div>
           </div>
         </div>
+        <div class="item"><a href="index.html#give">Give</a></div>
         <div class="item" data-menu>
           <button>Serve &amp; About <svg viewBox="0 0 12 12">
               <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" />
@@ -803,7 +788,6 @@
                 <div class="col-h">Serve</div>
                 <a class="lnk" href="index.html#church"><span class="t">Join a team</span></a>
                 <a class="lnk" href="index.html#church"><span class="t">Missions</span></a>
-                <a class="lnk" href="index.html#give"><span class="t">Give</span></a>
               </div>
               <div>
                 <div class="col-h">About</div>
@@ -817,9 +801,6 @@
           </div>
         </div>
       </nav>
-      <div class="actions">
-        <a class="btn-solid" href="index.html#give">Give</a>
-      </div>
       <button class="burger" aria-label="Menu" data-burger><span></span><span></span><span></span></button>
     </div>
   </header>
@@ -847,6 +828,7 @@
       <div class="m-body"><a href="index.html#whatson">Sermon library</a><a href="index.html#whatson">Articles</a><a
           href="index.html#whatson">Stories</a><a href="index.html#whatson">What's on</a></div>
     </div>
+    <div class="m-sec"><a class="m-link" href="index.html#give">Give</a></div>
     <div class="m-sec"><button>Serve &amp; About <svg viewBox="0 0 12 12">
           <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" />
         </svg></button>
@@ -855,7 +837,6 @@
           vision</a><a href="index.html#church">Our story</a><a href="index.html#church">Our team</a><a
           href="index.html#give">Contact us</a></div>
     </div>
-    <div class="m-cta"><a class="s" href="index.html#give">Give</a></div>
   </div>
 
 

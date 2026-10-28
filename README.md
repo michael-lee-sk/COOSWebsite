@@ -6,7 +6,7 @@ A static welcome website for the Church of Our Saviour (COOS) in Singapore. It i
 
 ### Open the page directly
 
-Open `index.html` in a web browser. This is enough to view the page, though a local web server is recommended for the most reliable behavior with browser features and embedded content.
+Open `html/index.html` in a web browser. This is enough to view the page, though a local web server is recommended for the most reliable behavior with browser features and embedded content.
 
 ### Run a local web server
 
@@ -18,7 +18,7 @@ Open `index.html` in a web browser. This is enough to view the page, though a lo
 	```
 
 	If `py` is not available, try `python -m http.server 8000`.
-3. Visit [http://localhost:8000](http://localhost:8000) in your browser.
+3. Visit [http://localhost:8000/html/](http://localhost:8000/html/) in your browser.
 4. Stop the server with `Ctrl+C` in the terminal.
 
 You can also open this folder in VS Code and use the Live Server extension, if installed.
@@ -38,9 +38,9 @@ An internet connection is needed for externally hosted fonts, images, maps, and 
 
 ## Project files
 
-- `index.html` — page content and structure
-- `styles.css` — layout, responsive styling, and visual design
-- `script.js` — menu behavior, scroll storytelling, ministry scrolling, and cookie-choice storage
-- `new (1) copy.html` — an additional HTML page in the project; the primary launch page is `index.html`
+- `html/` — `index.html` and `new (1) copy.html`
+- `css/styles.css` — layout, responsive styling, and visual design
+- `js/script.js` — menu behavior, scroll storytelling, ministry scrolling, and cookie-choice storage
+- `images/coos-logo.png` — COOS logo used by the welcome page
 
 Some menu items, event cards, and footer links currently point to sections on this page or act as placeholders rather than opening separate pages or submitting forms.
