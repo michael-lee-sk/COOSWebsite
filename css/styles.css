@@ -1820,7 +1820,7 @@ img {
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
-.submin-pill:hover {
+a.submin-pill:hover {
   background: var(--accent);
   color: var(--text-light);
   border-color: var(--accent);
@@ -2029,4 +2029,54 @@ html{scroll-padding-top:82px}
 @media(prefers-reduced-motion:reduce){
  .homepage-v2 .cinematic-hero > img,.homepage-v2 .hero-scroll__track{animation:none!important}
  .homepage-v2 .media-card:hover,.homepage-v2 .ministry-hcard:hover,.homepage-v2 .campus-card:hover,.homepage-v2 .tile:hover{transform:none}
+}
+
+/* Clear service schedules and community next steps. */
+.homepage-v2 #services .campus-card-details { grid-template-columns: 1fr; padding: 18px 22px 22px; }
+.homepage-v2 #services .campus-card-header { padding: 22px 22px 0; }
+.homepage-v2 #services .campus-card-details .map-iframe { height: 120px; }
+.homepage-v2 #services .campus-schedule { justify-content: flex-start; padding-top: 8px; }
+.homepage-v2 #services .timing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0; }
+.homepage-v2 #services .timing-pill { padding: 10px 12px; gap: 6px; }
+.homepage-v2 #services .timing-lang { font-size: 14px; }
+.homepage-v2 .schedule-heading { margin: 0 0 12px; font-size: 14px; font-weight: 700; color: var(--accent-hover); }
+.homepage-v2 .schedule-heading--secondary { margin-top: 16px; color: var(--ink-soft); }
+.homepage-v2 .service-time-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; font-size: 15px; }
+.homepage-v2 .service-day { color: var(--ink-soft); }
+.homepage-v2 .service-time { font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
+.homepage-v2 #services .map-link { display: flex; justify-content: center; min-height: 44px; padding: 8px 16px; margin-top: 12px; border: 1px solid var(--accent); border-radius: var(--radius-sm); }
+.homepage-v2 #services .map-link:hover { background: var(--bg-subtle); }
+.homepage-v2 .ministry-content { gap: 0; }
+.homepage-v2 .ministry-action { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 48px; margin-top: auto; padding: 20px 0 4px; font-size: 16px; font-weight: 600; color: var(--accent-hover); }
+.homepage-v2 .subministry-list { padding-bottom: 20px; }
+.homepage-v2 .ministry-action:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 600px) {
+  .homepage-v2 .ministries-stack { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .homepage-v2 #services .campus-card-header { padding: 20px 16px 0; }
+  .homepage-v2 #services .campus-card-details { padding: 16px; }
+}
+@media (max-width: 380px) {
+  .homepage-v2 .service-time-row { flex-direction: column; gap: 4px; }
+  .homepage-v2 .service-time { text-align: left; }
+}
+
+/* Compact schedules retain separate day and time labels. */
+.homepage-v2 #services .service-time-row { flex-wrap: wrap; gap: 2px 10px; font-size: 14px; }
+@media (max-width: 1100px) and (min-width: 721px), (max-width: 480px) {
+  .homepage-v2 #services .timing-grid { grid-template-columns: 1fr; }
+}
+
+/* Slim livestream row below the campus schedules. */
+.homepage-v2 #services .livestream-banner { padding: 8px 14px; margin-top: 12px; gap: 8px 16px; flex-wrap: wrap; }
+.homepage-v2 .livestream-banner .banner-text { font-size: 14px; }
+.homepage-v2 .livestream-banner .btn { min-height: 44px; padding: 8px 14px; font-size: 14px; gap: 10px; }
+
+/* Place online worship alongside the services heading. */
+.homepage-v2 .services-heading-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px 28px; flex-wrap: wrap; margin-bottom: 20px; }
+.homepage-v2 .services-heading-row > div:first-child { flex: 1 1 420px; min-width: 0; }
+.homepage-v2 #services .services-heading-row .subtitle { margin-bottom: 0; }
+.homepage-v2 #services .services-heading-row .livestream-banner { flex: 0 1 auto; margin-top: 16px; }
+@media (max-width: 600px) {
+  .homepage-v2 .services-heading-row { flex-direction: column; }
+  .homepage-v2 .services-heading-row > div:first-child { flex-basis: auto; }
 }

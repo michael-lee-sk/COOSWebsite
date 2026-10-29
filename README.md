@@ -16,7 +16,7 @@ The shared navbar is loaded from an HTML partial with JavaScript. Use Live Serve
 	```
 
 	If `py` is not available, try `python -m http.server 8000`.
-3. Visit [http://localhost:8000/html/](http://localhost:8000/html/) in your browser.
+3. Visit [http://localhost:8000/html/](http://localhost:8000/html/) in your browser or can open the site with Live Server.
 4. Stop the server with `Ctrl+C` in the terminal.
 
 You can also open this folder in VS Code and use the Live Server extension, if installed.

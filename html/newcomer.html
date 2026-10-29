@@ -35,53 +35,13 @@
       <div class="wrap">
         <div class="eyebrow newcomer-hero-eyebrow">New here</div>
         <h1 class="newcomer-text-light">There's a place for you here</h1>
-        <p class="lede newcomer-hero-description">However you found us, you're welcome — exactly as you are. No form, no
-          dress code, nothing expected of you.</p>
+        <p class="lede newcomer-hero-description">However you found us, you're welcome — exactly as you are. No dress code, nothing expected of you.</p>
         <div class="cta-row">
           <a class="btn-solid" href="index.html#services">See service times</a>
           <a class="btn-ghost newcomer-hero-visit" href="https://coos.org.sg/hello/">Plan your visit</a>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="scrolly" id="scrolly">
-    <div class="scrolly__pin">
-      <div class="scrolly__bg">
-        <img data-bg class="is-active"
-          src="https://coos.org.sg/wp-content/uploads/2023/11/church_11zon-1-e1699603108451.jpg" alt="">
-      </div>
-      <div class="scrolly__scrim"></div>
-      <div class="scrolly__caption wrap">
-        <span class="scrolly__label">Who we are</span>
-        <h2 class="scrolly__h" data-h>Ordinary, not polished</h2>
-        <p class="scrolly__p" data-p>No stage lighting or hype. People show up as they are — some straight from a Saturday shift, some who've been coming forty years, some who walked in last week.</p>
-      </div>
-    </div>
-
-    <section class="scrolly__step" data-step
-      data-img="https://coos.org.sg/wp-content/uploads/2023/11/church_11zon-1-e1699603108451.jpg"
-      data-title="Ordinary, not polished"
-      data-text="No stage lighting or hype. People show up as they are — some straight from a Saturday shift, some who've been coming forty years, some who walked in last week.">
-    </section>
-
-    <section class="scrolly__step" data-step
-      data-img="https://coos.org.sg/wp-content/uploads/2026/06/Cell-Groups.webp"
-      data-title="Small groups are where it happens"
-      data-text="Sunday is the front door. The real life — friendships, honest conversation, people praying for each other by name — happens in cell groups, life-stage gatherings, and things like Alpha.">
-    </section>
-
-    <section class="scrolly__step" data-step
-      data-img="https://coos.org.sg/wp-content/uploads/2023/10/HealingRooms-NewPic.jpeg"
-      data-title="Care isn't a side project"
-      data-text="Prayer, counselling, healing ministries, a 24-hour line for people in crisis. If you're going through something hard, that's a lot of what this community is for — not just on Sundays.">
-    </section>
-
-    <section class="scrolly__step" data-step
-      data-img="https://coos.org.sg/wp-content/uploads/2026/06/Evergreen_Image.webp"
-      data-title="More languages and ages than you'd expect"
-      data-text="English, Mandarin, Cantonese, Hokkien, Filipino and Myanmar congregations. Kids, youth, young adults, and an active seniors' fellowship — all running in parallel.">
-    </section>
   </div>
 
   <div class="wrap">
@@ -134,35 +94,61 @@
     <section>
       <div class="sec-h">Two campuses</div>
       <h2>Everyone's welcome at either</h2>
-      <p class="sub">No registration needed. Just turn up.</p>
+      <p class="sub">No registration needed. Just turn up. Hover over or select a campus to view its map and services.</p>
       <div class="campus2">
-        <a class="campus campus--photo newcomer-campus-photo" href="index.html#services">
-          <span class="cn">Margaret Drive</span>
-          <span class="ca">130 Margaret Drive, S149300</span>
-          <span class="cm">10 minutes from Queenstown MRT · Parking on site</span>
-          <span class="ct">English · 华语 Mandarin · Cantonese &amp; Hokkien · Filipino · Youth · Seniors</span>
-        </a>
-        <a class="campus" href="index.html#services">
-          <span class="cn">COOS Jurong</span>
-          <span class="ca">1 Venture Avenue #03-03, S608521</span>
-          <span class="cm">8 minutes from Jurong East MRT · Carpark in building</span>
-          <span class="ct">English · Alpha · a newer, smaller congregation with the same welcome</span>
-        </a>
+        <button type="button" class="campus campus-picker" data-campus-dialog="margaret-dialog" aria-haspopup="dialog" aria-controls="margaret-dialog">
+          <img class="campus-picker__photo" src="https://coos.org.sg/wp-content/uploads/2023/11/church_11zon-1-e1699603108451.jpg" alt="COOS congregation gathered for worship" loading="lazy">
+          <span class="campus-picker__body">
+            <span class="cn">Margaret Drive</span>
+            <span class="ca">130 Margaret Drive, S149300</span>
+            <span class="cm">10 minutes from Queenstown MRT ? Parking on site</span>
+            <span class="campus-picker__action">View map &amp; services <span aria-hidden="true">&#8599;</span></span>
+          </span>
+        </button>
+        <button type="button" class="campus campus-picker" data-campus-dialog="jurong-dialog" aria-haspopup="dialog" aria-controls="jurong-dialog">
+          <img class="campus-picker__photo" src="https://coos.org.sg/wp-content/uploads/2018/05/agifttobetreasured_11zon-1-e1700124164376.jpg" alt="Community life at COOS" loading="lazy">
+          <span class="campus-picker__body">
+            <span class="cn">COOS Jurong</span>
+            <span class="ca">1 Venture Avenue #03-03, S608521</span>
+            <span class="cm">8 minutes from Jurong East MRT ? Carpark in building</span>
+            <span class="campus-picker__action">View map &amp; services <span aria-hidden="true">&#8599;</span></span>
+          </span>
+        </button>
       </div>
     </section>
 
-    <section>
-      <div class="cta-band">
-        <div>
-          <h2 class="newcomer-text-light">Still have a question?</h2>
-          <p class="newcomer-question-description">Ask us anything before you come —
-            someone from our team will get back to you personally.</p>
+    <section id="newcomer-form" aria-label="Newcomer welcome form">
+      <div class="welcome-experience">
+        <div class="welcome-intro-card" data-welcome-intro>
+          <img src="https://www.jotform.com/uploads/coosit/form_files/Staff%20Group%20Photo.656e9401be3c18.94905834.png" alt="The COOS team welcomes you" loading="lazy">
+          <h2>Welcome to COOS!</h2>
+          <p>We'd love to stay connected after your visit. Take a minute or two to introduce yourself.</p>
+          <span class="welcome-count">8 questions</span>
+          <button type="button" class="welcome-primary" data-welcome-start>Start <span aria-hidden="true">&rarr;</span></button>
+          <small>UI preview &middot; No information is sent or saved</small>
         </div>
-        <div class="cta-row newcomer-question-actions">
-          <a class="btn-solid" href="https://coos.org.sg/contact-us/">Say hello</a>
-          <a class="btn-ghost newcomer-faq-link" href="#visit-questions">Read the
-            FAQ</a>
+        <form class="welcome-card-form" data-welcome-form hidden>
+          <div class="welcome-progress"><span data-welcome-count>1 / 8</span><progress max="8" value="1" aria-label="Form progress"></progress></div>
+<fieldset class="welcome-step" data-welcome-step><legend>What is your name? *</legend><input name="name" aria-label="Your name" autocomplete="name" minlength="2" maxlength="120" required><p class="welcome-hint">Tell us how you would like to be addressed.</p></fieldset>
+<fieldset class="welcome-step" data-welcome-step><legend>How can we reach you by phone? *</legend><input name="phone" aria-label="Mobile number" type="tel" autocomplete="tel" maxlength="40" required></fieldset>
+<fieldset class="welcome-step" data-welcome-step><legend>What is your email address? *</legend><input name="email" aria-label="Email address" type="email" autocomplete="email" maxlength="254" required></fieldset>
+<fieldset class="welcome-step" data-welcome-step><legend>Gender? *</legend><div class="welcome-options"><label><input type="radio" name="gender" value="0" required><span>Male</span></label><label><input type="radio" name="gender" value="1" required><span>Female</span></label></div></fieldset>
+<fieldset class="welcome-step" data-welcome-step><legend>Which service did you join? *</legend><div class="welcome-options"><label><input type="radio" name="service" value="0" required><span>Online service</span></label><label><input type="radio" name="service" value="1" required><span>Margaret Drive ? Saturday 2.30pm</span></label><label><input type="radio" name="service" value="2" required><span>Margaret Drive ? Saturday 4.30pm (Youth)</span></label><label><input type="radio" name="service" value="3" required><span>Margaret Drive ? Sunday 8.30am</span></label><label><input type="radio" name="service" value="4" required><span>Margaret Drive ? Sunday 10.45am</span></label><label><input type="radio" name="service" value="5" required><span>Jurong ? Sunday 10.45am</span></label><label><input type="radio" name="service" value="6" required><span>Other</span></label></div><label class="welcome-other">Other service (optional)<input name="other_service" maxlength="200"></label></fieldset>
+<fieldset class="welcome-step" data-welcome-step><legend>What would you like to explore? *</legend><p class="welcome-hint">Choose one or more interests.</p><div class="welcome-options"><label><input type="checkbox" name="interests" value="0"><span>Exploring Christianity</span></label><label><input type="checkbox" name="interests" value="1"><span>Baptism classes</span></label><label><input type="checkbox" name="interests" value="2"><span>Prayer, counselling or care</span></label><label><input type="checkbox" name="interests" value="3"><span>Fellowship and community at COOS</span></label><label><input type="checkbox" name="interests" value="4"><span>Community outreach</span></label><label><input type="checkbox" name="interests" value="5"><span>None at the moment</span></label><label><input type="checkbox" name="interests" value="6"><span>Something else</span></label></div></fieldset>
+<fieldset class="welcome-step" data-welcome-step><legend>Anything else you would like us to know?</legend><p class="welcome-hint">Share a little about yourself or your visit. This question is optional.</p><textarea name="message" aria-label="Additional details" rows="4" maxlength="2000"></textarea></fieldset>
+<fieldset class="welcome-step" data-welcome-step><legend>Thank you for getting to know us.</legend><p>In the live form, your details help the COOS team welcome you and follow up on your interests.</p><label class="welcome-consent"><input name="consent" type="checkbox" required><span>I agree that COOS may use my details to contact me about my visit and selected interests. *</span></label><p class="welcome-hint">This is a UI preview. Nothing will be sent or saved.</p></fieldset>
+          <p class="welcome-error" data-welcome-error role="alert"></p>
+          <div class="welcome-navigation">
+            <button type="button" class="welcome-back" data-welcome-back>Previous</button>
+            <button type="submit" class="welcome-primary" data-welcome-next>Next &rarr;</button>
+          </div>
+          <p class="welcome-preview">UI preview &middot; Your details stay on this page.</p>
+        </form>
+        <div class="welcome-complete" data-welcome-complete hidden role="status">
+          <h2>Thanks for trying the form!</h2><p>This preview is complete. Your details have not been sent or saved.</p>
+          <button type="button" class="welcome-primary" data-welcome-reset>Back to welcome</button>
         </div>
+        <noscript><p>Please enable JavaScript to preview the welcome form.</p></noscript>
       </div>
     </section>
   </div>
@@ -170,6 +156,73 @@
 
 
   </main>
+  <dialog class="campus-dialog" id="margaret-dialog" aria-labelledby="margaret-title">
+    <div class="campus-dialog__header">
+      <div><h2 id="margaret-title">Margaret Drive</h2><p class="sub">130 Margaret Drive, S149300</p></div>
+      <button type="button" class="campus-dialog__close" aria-label="Close campus details" autofocus>&times;</button>
+    </div>
+    <div class="campus-dialog__content">
+      <iframe title="Google Map to Margaret Drive" data-src="https://maps.google.com/maps?q=130%20Margaret%20Dr%2C%20Singapore%20149300&amp;t=m&amp;z=15&amp;output=embed&amp;iwloc=near" class="map-iframe" loading="lazy"></iframe>
+      <div class="campus-dialog__schedule">
+            <p class="schedule-heading">Weekend services</p>
+            <div class="timing-grid">
+              <div class="timing-pill">
+                <span class="timing-lang">English Service</span>
+                <div class="service-time-row"><span class="service-day">Saturday</span><span class="service-time">2.30pm</span></div>
+<div class="service-time-row"><span class="service-day">Sunday</span><span class="service-time">8.30am &amp; 10.45am</span></div>
+              </div>
+              <div class="timing-pill">
+                <span class="timing-lang">华语 Mandarin</span>
+                <div class="service-time-row"><span class="service-day">Sunday</span><span class="service-time">2.00pm</span></div>
+              </div>
+              <div class="timing-pill">
+                <span class="timing-lang">Cantonese &amp; Hokkien</span>
+                <div class="service-time-row"><span class="service-day">Saturday</span><span class="service-time">10.00am</span></div>
+              </div>
+              <div class="timing-pill">
+                <span class="timing-lang">Filipino Service</span>
+                <div class="service-time-row"><span class="service-day">Sunday</span><span class="service-time">12.30pm</span></div>
+              </div>
+              <div class="timing-pill">
+                <span class="timing-lang">Youth Ministry</span>
+                <div class="service-time-row"><span class="service-day">Saturday</span><span class="service-time">4.30pm</span></div>
+              </div>
+            </div>
+            <p class="schedule-heading schedule-heading--secondary">Midweek community</p>
+            <div class="timing-grid">
+              <div class="timing-pill">
+                <span class="timing-lang">Seniors (Evergreen)</span>
+                <div class="service-time-row"><span class="service-day">1st &amp; 3rd Thursday</span><span class="service-time">2.00pm</span></div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </dialog>
+  <dialog class="campus-dialog" id="jurong-dialog" aria-labelledby="jurong-title">
+    <div class="campus-dialog__header">
+      <div><h2 id="jurong-title">COOS Jurong</h2><p class="sub">1 Venture Avenue #03-03, S608521</p></div>
+      <button type="button" class="campus-dialog__close" aria-label="Close campus details" autofocus>&times;</button>
+    </div>
+    <div class="campus-dialog__content">
+      <iframe title="Google Map to COOS Jurong" data-src="https://maps.google.com/maps?q=1%20Venture%20Avenue%2C%20Singapore%20608521&amp;t=m&amp;z=15&amp;output=embed&amp;iwloc=near" class="map-iframe" loading="lazy"></iframe>
+      <div class="campus-dialog__schedule">
+            <p class="schedule-heading">Weekend services</p>
+            <div class="timing-grid">
+              <div class="timing-pill">
+                <span class="timing-lang">English Service</span>
+                <div class="service-time-row"><span class="service-day">Sunday</span><span class="service-time">10.30am</span></div>
+              </div>
+            </div>
+            <p class="schedule-heading schedule-heading--secondary">Explore faith</p>
+            <div class="timing-grid">
+              <div class="timing-pill">
+                <span class="timing-lang">Alpha Programme</span>
+                <div class="service-time-row"><span class="service-day">Sunday</span><span class="service-time">12.30pm &ndash; 4.00pm</span></div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </dialog>
   <!-- Footer -->
   <footer id="give" class="footer">
     <div class="pad footer-content">
@@ -266,57 +319,8 @@
       </div>
     </div>
   </footer>
-  <script>
-    // Scrollytelling: swap pinned bg + caption as each step crosses viewport center
-    (function () {
-      const root = document.getElementById('scrolly');
-      if (!root) return;
-      const bgWrap = root.querySelector('.scrolly__bg');
-      const hEl = root.querySelector('[data-h]');
-      const pEl = root.querySelector('[data-p]');
-      const steps = [...root.querySelectorAll('[data-step]')];
-      if (!bgWrap || !hEl || !pEl || !steps.length) return;
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const imgCache = {};
-      function getImg(src) {
-        if (imgCache[src]) return imgCache[src];
-        const img = document.createElement('img');
-        img.src = src; img.alt = ''; img.setAttribute('data-bg', '');
-        bgWrap.appendChild(img);
-        imgCache[src] = img;
-        return img;
-      }
-      // preload first image as active, keyed by its declared step src
-      const first = bgWrap.querySelector('img[data-bg]');
-      if (first && steps[0]) imgCache[steps[0].dataset.img] = first, first.classList.add('is-active');
 
-      let current = null;
-      let captionTimer;
-      function activate(step) {
-        if (current === step) return;
-        current = step;
-        clearTimeout(captionTimer);
-        const src = step.dataset.img;
-        const img = getImg(src);
-        bgWrap.querySelectorAll('img').forEach(i => i.classList.remove('is-active'));
-        img.classList.add('is-active');
-        hEl.style.opacity = 0; pEl.style.opacity = 0;
-        hEl.style.transform = 'translateY(8px)'; pEl.style.transform = 'translateY(8px)';
-        captionTimer = setTimeout(() => {
-          hEl.textContent = step.dataset.title;
-          pEl.textContent = step.dataset.text;
-          hEl.style.opacity = 1; pEl.style.opacity = 1;
-          hEl.style.transform = 'translateY(0)'; pEl.style.transform = 'translateY(0)';
-        }, reducedMotion ? 0 : 160);
-      }
-      if (!('IntersectionObserver' in window)) { activate(steps[0]); return; }
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) activate(e.target); });
-      }, { threshold: 0, rootMargin: '-45% 0px -45% 0px' });
-      steps.forEach(s => io.observe(s));
-    })();
-  </script>
-
+  <script src="../js/newcomer.js" defer></script>
 </body>
 
 </html>
