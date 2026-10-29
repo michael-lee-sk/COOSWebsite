@@ -14,13 +14,15 @@
     rel="stylesheet">
 
   <!-- External Stylesheet -->
-  <link rel="stylesheet" href="../css/styles.css?v=20261025-1">
+  <link rel="stylesheet" href="../css/styles.css?v=20261029-2">
 </head>
 
-<body>
+<body class="homepage-v2">
 
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
   <!-- Header / Navigation from new.html -->
-  <header class="nav">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="nav">
     <div class="nav__inner">
       <a class="brand" href="index.html">
         <img class="brand-logo" src="../images/coos-logo.png" alt="Church of Our Saviour" />
@@ -147,111 +149,125 @@
   </div>
 
   <!-- Main Content Wrapper -->
-  <main class="page-wrapper">
+  <main id="main-content" class="page-wrapper">
 
     <!-- Connect Photo Hero -->
-    <div class="photo-hero" id="top">
+    <section class="photo-hero cinematic-hero" id="top" aria-label="Life at Church of Our Saviour">
       <img src="https://coos.org.sg/wp-content/uploads/2023/11/church_11zon-1-e1699603108451.jpg"
         alt="Congregation gathered at Church of Our Saviour">
       <iframe class="photo-hero__video"
         src="https://www.youtube.com/embed/KKrirAnu6zc?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=KKrirAnu6zc&amp;playsinline=1&amp;rel=0"
         title="Church of Our Saviour welcome video" allow="autoplay; encrypted-media; picture-in-picture"
         referrerpolicy="strict-origin-when-cross-origin" aria-hidden="true" tabindex="-1"></iframe>
-      <div class="photo-hero__overlay">
+      <div class="hero-welcome">
         <div class="wrap">
-          <h1 class="disp h1" style="color:var(--cream)"><b>WELCOME TO COOS!</b></h1>
-          <!-- <p class="lede">However you found us, you're welcome into our family!</p> -->
+          <h2 class="hero-welcome__title">Welcome to COOS!</h2>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#services">See service times</a>
-            <a class="btn btn-dark" href="#first-visit">Plan your visit</a>
+            <a class="btn btn-primary" href="#first-visit">Plan your visit <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-dark" href="#services">Service times <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="welcome-statement" id="welcome" aria-labelledby="hero-heading">
+      <div class="wrap welcome-statement__grid">
+        <p class="section-overline">A CHURCH FOR EVERY GENERATION <span aria-hidden="true">&#10035;</span></p>
+        <div>
+          <h1 class="disp" id="hero-heading">A place to <em>belong.</em><br>A faith to <em>live.</em></h1>
+          <p class="welcome-intro">Wherever you are on your journey, there's a place for you at COOS. Across generations, we gather to worship, grow in faith, care for one another, and serve.</p>
+          <a class="editorial-link" href="#scrolly">Discover our story <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+      <div class="wrap welcome-statement__footer">
+        <a class="hero-scroll" href="#scrolly" aria-label="Scroll to discover our story"><span class="hero-scroll__track" aria-hidden="true"></span><span>SCROLL TO EXPLORE</span></a>
+        <div class="hero-index" aria-hidden="true">01 / 05</div>
+      </div>
+    </section>
 
     <!-- Scrollytelling Section -->
     <div class="scrolly" id="scrolly">
       <div class="scrolly__pin">
         <div class="scrolly__bg">
-          <img data-bg src="https://coos.org.sg/wp-content/uploads/2023/11/church_11zon-1-e1699603108451.jpg"
-            alt="Foyer before or after service">
+          <img data-bg src="https://coos.org.sg/wp-content/uploads/2026/06/Angel-Network-Usher.webp"
+            alt="COOS service ushers">
         </div>
         <div class="scrolly__scrim"></div>
         <div class="scrolly__caption wrap">
-          <span class="scrolly__label">Who we are</span>
-          <h2 class="scrolly__h" data-h>Life at COOS</h2>
-          <p class="scrolly__p" data-p>Before the logistics — a sense of the place. Scroll on.</p>
+          <span class="scrolly__label">YOUR FIRST VISIT <span class="story-counter" data-story-counter>01 / 05</span></span>
+          <h2 class="scrolly__h" data-h>A friendly face at the door</h2>
+          <p class="scrolly__p" data-p>New places can feel unfamiliar. Say hello to an usher when you arrive. They can help you find a seat and answer questions before the service begins.</p>
         </div>
       </div>
 
       <section class="scrolly__step" data-step
+        data-img="https://coos.org.sg/wp-content/uploads/2026/06/Angel-Network-Usher.webp"
+        data-title="A friendly face at the door"
+        data-text="New places can feel unfamiliar. Say hello to an usher when you arrive. They can help you find a seat and answer questions before the service begins.">
+      </section>
+
+      <section class="scrolly__step" data-step
+        data-img="https://coos.org.sg/wp-content/uploads/2023/11/charismatic_11zon-e1700549634633.jpg"
+        data-title="Spirit filled worship where God is present"
+        data-text="Worshippers across generations and life-stages with arms high and heart abandoned.">
+      </section>
+
+      <section class="scrolly__step" data-step
+        data-img="https://coos.org.sg/wp-content/uploads/2023/11/committed-to-Gods-word_11zon.jpg"
+        data-title="A message for everyday life"
+        data-text="The sermon is a message from the Bible that helps us explore faith and what it means for daily life. Come with your questions and take time to reflect.">
+      </section>
+
+      <section class="scrolly__step" data-step
         data-img="https://coos.org.sg/wp-content/uploads/2023/11/DSC09824_11zon-e1699600247914.jpg"
-        data-title="Worshippers of all ages and stages"
-        data-text="People who worship with their hearts abandoned and arms open wide.">
+        data-title="Stay a little. Say hello."
+        data-text="After the service, stop by the Welcome Corner for light refreshments and a conversation. Meet someone, ask a question, or find out more about life at COOS.">
       </section>
 
       <section class="scrolly__step" data-step
         data-img="https://coos.org.sg/wp-content/uploads/2026/06/Cell-Groups.webp"
-        data-title="Small groups are where it happens"
-        data-text="Sunday is the front door. The real life — friendships, honest conversation, people praying for each other by name — happens in cell groups, life-stage gatherings, and things like Alpha.">
-      </section>
-
-      <section class="scrolly__step" data-step
-        data-img="https://coos.org.sg/wp-content/uploads/2023/10/HealingRooms-NewPic.jpeg"
-        data-title="Care isn't a side project"
-        data-text="Prayer, counselling, healing ministries, a 24-hour line for people in crisis. If you're going through something hard, that's a lot of what this community is for — not just on Sundays.">
-      </section>
-
-      <section class="scrolly__step" data-step
-        data-img="https://coos.org.sg/wp-content/uploads/2026/06/Evergreen_Image.webp"
-        data-title="More languages and ages than you'd expect"
-        data-text="English, Mandarin, Cantonese, Hokkien, Filipino and Myanmar congregations. Kids, youth, young adults, and an active seniors' fellowship — all running in parallel.">
+        data-title="Community beyond the service"
+        data-text="When you&#x27;re ready, explore a cell group: a smaller community to share life, explore the Bible and pray together beyond the weekend service. Ask us how to get connected.">
       </section>
     </div>
 
-    <!-- Start Here: 4 Things People Ask First -->
-    <section class="pad" style="padding-top:60px;padding-bottom:50px;">
+    <div class="story-transition" aria-hidden="true"><span>COME AS YOU ARE</span><span>↓</span></div>
+
+    <!-- First visit essentials and newcomer welcome -->
+    <section id="first-visit" class="pad quickstart-section" aria-labelledby="first-visit-heading">
       <div class="wrap">
-        <div class="sec-h">Start here</div>
-        <h2 class="disp h2">Four things people ask first</h2>
+        <div class="sec-h">YOUR FIRST STEPS <span class="section-number">/ 01</span></div>
+        <div class="first-visit-header">
+          <div>
+            <h2 class="disp h2" id="first-visit-heading">Find your way <em>in.</em></h2>
+            <p class="section-description">New to COOS? Here are a few things to help you feel at home. Say hello before you visit, or simply come along.</p>
+          </div>
+          <a class="btn btn-primary" href="https://coos.org.sg/hello/">I'm new to COOS <span aria-hidden="true">&#8599;</span></a>
+        </div>
         <div class="grid4">
-          <a class="tile" href="#first-visit">
-            <span class="tn">01</span><span class="tt">What happens in a service?</span>
-            <span class="td">About 90 minutes of worship and a sermon. Come early, an usher will meet you and help you find a seat.</span>
+          <a class="tile" href="#scrolly">
+            <span class="tn">01</span><span class="tt">What is a service like?</span>
+            <span class="td">A warm welcome, worship and a message from the Bible. Explore the first-visit journey above.</span>
           </a>
           <a class="tile" href="#services">
-            <span class="tn">02</span><span class="tt">When &amp; where do you meet?</span>
-            <span class="td">Two campuses — Margaret Drive and Jurong — across multiple languages.</span>
+            <span class="tn">02</span><span class="tt">When &amp; where?</span>
+            <span class="td">Find service times and directions for Margaret Drive and Jurong below.</span>
           </a>
           <a class="tile" href="#church">
-            <span class="tn">03</span><span class="tt">Can I bring my kids?</span>
-            <span class="td">Yes. COOSkidz runs alongside weekend services with secure check-in and a programme for their age.</span>
+            <span class="tn">03</span><span class="tt">Coming with family?</span>
+            <span class="td">Explore COOSkidz and communities for different ages and life stages.</span>
           </a>
-          <a class="tile" href="#questions">
-            <span class="tn">04</span><span class="tt">What if I want to go deeper?</span>
-            <span class="td">Say hello over light refreshments at our Welcome Corner. We would like to know you!</span>
+          <a class="tile" href="https://coos.org.sg/hello/">
+            <span class="tn">04</span><span class="tt">How do I get connected?</span>
+            <span class="td">Introduce yourself and let us help you take your next step into the community.</span>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- First Visit Breakdown Section -->
-    <section id="first-visit" class="pad"
-      style="padding-top:50px;padding-bottom:60px;border-top:1px solid var(--border);">
-      <div class="wrap">
-        <div class="first-visit-content">
-          <h2 class="disp h2">Are You New?</h2>
-          <p class="sub">We know walking into a church for the first time can feel daunting. If you are a first time visitor, click on the button below!</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="https://coos.org.sg/hello/">I'm New!</a>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- Services & Campuses Section -->
-    <section id="services" class="section pad">
-      <h2 class="disp h2">Two places to find us</h2>
+    <section id="services" class="section pad section-services" data-reveal-section>
+      <p class="section-overline">JOIN US THIS WEEKEND <span class="section-number">/ 02</span></p><h2 class="disp h2">One church. <em>Two homes.</em></h2>
       <p class="subtitle">Everyone is welcome at either campus. No registration needed.</p>
 
       <div class="grid cols2">
@@ -343,9 +359,9 @@
     </section>
 
     <!-- What's On & Media Section -->
-    <section id="whatson" class="section pad">
+    <section id="whatson" class="section pad section-whats-on" data-reveal-section>
       <div class="section-header stack">
-        <h2 class="disp h2">What's on</h2>
+        <h2 class="disp h2">Life is better <em>together.</em></h2>
         <a href="#whatson" class="btn btn-dark">See all events</a>
       </div>
 
@@ -417,7 +433,7 @@
     </section>
 
     <!-- 4 Ministry Category Cards (Children, Youth, Adult, Filipino) -->
-    <section id="church" class="section pad">
+    <section id="church" class="section pad" data-reveal-section>
       <div class="wrap" style="padding:0;">
         <h2 class="disp h2">Our categories</h2>
         <p class="subtitle">A spiritual home for every life stage. Discover the vibrant life, events, and community
@@ -425,7 +441,7 @@
 
         <div class="ministries-stack" role="region" aria-label="Ministry categories">
           <!-- 1. Children -->
-          <div class="ministry-hcard">
+          <div class="ministry-hcard" data-interactive-card>
             <div class="ministry-img-wrap">
               <img src="https://coos.org.sg/wp-content/uploads/2026/06/COOSKidz.jpg"
                 alt="Children at COOSkidz" class="ministry-img">
@@ -445,7 +461,7 @@
           </div>
 
           <!-- 2. Youth -->
-          <div class="ministry-hcard">
+          <div class="ministry-hcard" data-interactive-card>
             <div class="ministry-img-wrap">
               <img src="https://coos.org.sg/wp-content/uploads/2026/06/COOSYouth1_image.webp"
                 alt="Youth at a COOS Youth gathering" class="ministry-img">
@@ -464,7 +480,7 @@
           </div>
 
           <!-- 3. Adult -->
-          <div class="ministry-hcard">
+          <div class="ministry-hcard" data-interactive-card>
             <div class="ministry-img-wrap">
               <img src="https://coos.org.sg/wp-content/uploads/2026/06/FLM_FI_landscape.avif"
                 alt="Adults and families in the COOS community" class="ministry-img">
@@ -484,7 +500,7 @@
           </div>
 
           <!-- 4. Filipino -->
-          <div class="ministry-hcard">
+          <div class="ministry-hcard" data-interactive-card>
             <div class="ministry-img-wrap">
               <img src="https://coos.org.sg/wp-content/uploads/2026/07/COOSFilipinoPic1.avif"
                 alt="Members of the COOS Filipino congregation" class="ministry-img">
@@ -505,41 +521,20 @@
       </div>
     </section>
 
-    <!-- Full-Page Response Section (Positioned right after the 4 category cards) -->
-    <section class="response-banner">
+    <!-- One closing invitation with practical next steps and contact -->
+    <section id="questions" class="response-banner" aria-labelledby="response-heading" data-reveal-section>
       <img src="https://coos.org.sg/wp-content/uploads/2023/11/church_11zon-1-e1699603108451.jpg"
-        alt="Join Church of Our Saviour this Sunday" class="response-bg">
+        alt="" class="response-bg" loading="lazy">
       <div class="response-overlay"></div>
       <div class="response-inner">
-        <span class="response-kicker">You're Always Welcome</span>
-        <h2 class="disp response-h">Ready to experience life at Church of Our Saviour?</h2>
-        <p class="response-p">Whether you're exploring faith for the first time, looking for a spiritual home, or
-          seeking authentic community, our doors and hearts are wide open.</p>
+        <span class="response-kicker">You're always welcome</span>
+        <h2 class="disp response-h" id="response-heading">Come as you are.</h2>
+        <p class="response-p">You don't need to have it all figured out. Join us for a service and take your next step at your own pace.</p>
         <div class="response-actions">
-          <a href="#first-visit" class="btn btn-primary">Plan Your Visit</a>
-          <a href="#services" class="btn btn-dark"
-            style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;">View
-            Service Times</a>
-
+          <a href="https://coos.org.sg/hello/" class="btn btn-primary">I'm new to COOS</a>
+          <a href="#services" class="btn btn-dark response-services">View service times</a>
         </div>
-      </div>
-    </section>
-
-    <!-- Still Have a Question? CTA Band -->
-    <section class="pad" style="padding-top:24px;padding-bottom:44px;">
-      <div class="wrap">
-        <div class="cta-band">
-          <div>
-            <h2 class="disp h2" style="color:var(--cream)">Still have a question?</h2>
-            <p style="color:#C9C5BC;font-size:17px;margin-top:10px;max-width:48ch">Ask us anything before you come —
-              someone from our team will get back to you personally.</p>
-          </div>
-          <div class="cta-row" style="margin:0">
-            <a class="btn btn-primary" href="#services">Say hello</a>
-            <a class="btn btn-dark" href="#church"
-              style="color:var(--cream);border:1px solid rgba(255,255,255,.25);background:transparent;">Read the FAQ</a>
-          </div>
-        </div>
+        <p class="response-contact">Have a question before you visit? <a href="https://coos.org.sg/contact-us/">Get in touch <span aria-hidden="true">&#8599;</span></a></p>
       </div>
     </section>
 
@@ -593,7 +588,7 @@
         <div class="footer-col">
           <h4 class="footer-col-title">MINISTRY</h4>
           <a href="#services">Weekend Services</a>
-          <a href="#new">Come Join Us</a>
+          <a href="#first-visit">Come Join Us</a>
         </div>
 
         <!-- Col 3: RESOURCES -->
@@ -607,7 +602,7 @@
         <!-- Col 4: CONNECT -->
         <div class="footer-col">
           <h4 class="footer-col-title">CONNECT</h4>
-          <a href="#new">I Am New</a>
+          <a href="#first-visit">I Am New</a>
           <a href="#give">Contact Us</a>
           <a href="#church">We Care</a>
         </div>
@@ -654,7 +649,7 @@
   </div>
 
   <!-- External Script -->
-  <script src="../js/script.js?v=20261027-1"></script>
+  <script src="../js/script.js?v=20261029-2"></script>
 </body>
 
 </html>

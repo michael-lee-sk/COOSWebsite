@@ -142,3 +142,98 @@ document.addEventListener('DOMContentLoaded', function () {
     steps.forEach(s => io.observe(s));
   })();
 });
+
+
+/* Phase 1: progressive enhancement. Existing handlers remain intact. */
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.querySelector('.nav');
+  if (nav) {
+    const updateNav = () => nav.classList.toggle('is-scrolled', window.scrollY > 16);
+    updateNav();
+    window.addEventListener('scroll', updateNav, { passive: true });
+  }
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const sections = [...document.querySelectorAll('[data-reveal-section]')];
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px 40px 0px' });
+    sections.forEach(section => {
+      // Do not conceal content already on screen during initialization.
+      if (section.getBoundingClientRect().top > window.innerHeight) {
+        section.classList.add('reveal-ready');
+        observer.observe(section);
+      }
+    });
+  }
+
+  // Reflect menu state for assistive technologies without altering the original controls.
+  document.querySelectorAll('[data-menu] > button, .m-sec > button').forEach(button => {
+    button.setAttribute('aria-expanded', String(button.parentElement.classList.contains('open')));
+  });
+  const syncMenuState = () => {
+    document.querySelectorAll('[data-menu] > button, .m-sec > button').forEach(button => {
+      button.setAttribute('aria-expanded', String(button.parentElement.classList.contains('open')));
+    });
+  };
+  document.addEventListener('click', syncMenuState);
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') syncMenuState(); });
+});
+
+
+/* Homepage V2: progress, accessible mobile navigation, and story position. */
+document.addEventListener('DOMContentLoaded', () => {
+  if (!document.body.classList.contains('homepage-v2')) return;
+  const progress = document.querySelector('.reading-progress span');
+  let scheduled = false;
+  function updateProgress() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (progress) progress.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+    scheduled = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!scheduled) { scheduled = true; requestAnimationFrame(updateProgress); }
+  }, { passive: true });
+  window.addEventListener('resize', updateProgress, { passive: true });
+  updateProgress();
+
+  const burger = document.querySelector('[data-burger]');
+  const mobile = document.querySelector('[data-mobile]');
+  const syncNavigation = () => {
+    if (burger && mobile) burger.setAttribute('aria-expanded', String(mobile.classList.contains('open')));
+    document.querySelectorAll('[data-menu] > button, .m-sec > button').forEach(button => {
+      button.setAttribute('aria-expanded', String(button.parentElement.classList.contains('open')));
+    });
+  };
+  if (burger && mobile) {
+    burger.setAttribute('aria-controls', 'coos-mobile-menu');
+    mobile.id = 'coos-mobile-menu';
+    burger.setAttribute('aria-expanded', 'false');
+    mobile.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mobile.classList.remove('open'); syncNavigation();
+    }));
+  }
+  document.addEventListener('click', syncNavigation);
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { syncNavigation(); burger?.focus(); }
+  });
+  syncNavigation();
+
+  const steps = [...document.querySelectorAll('#scrolly [data-step]')];
+  const counter = document.querySelector('[data-story-counter]');
+  if (counter && steps.length && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const index = steps.indexOf(entry.target) + 1;
+        counter.textContent = `${String(index).padStart(2, '0')} / ${String(steps.length).padStart(2, '0')}`;
+      }
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    steps.forEach(step => observer.observe(step));
+  }
+});
