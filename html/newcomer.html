@@ -37,8 +37,8 @@
         <h1 class="newcomer-text-light">There's a place for you here</h1>
         <p class="lede newcomer-hero-description">However you found us, you're welcome — exactly as you are. No dress code, nothing expected of you.</p>
         <div class="cta-row">
-          <a class="btn-solid" href="index.html#services">See service times</a>
-          <a class="btn-ghost newcomer-hero-visit" href="https://coos.org.sg/hello/">Plan your visit</a>
+          <a class="btn-solid" href="#campuses">See service times</a>
+          <a class="btn-ghost newcomer-hero-visit" href="#newcomer-form">Plan your visit</a>
         </div>
       </div>
     </div>
@@ -53,15 +53,15 @@
           <span class="tn">01</span><span class="tt">What happens in a service?</span>
           <span class="td">About 90 minutes of songs, prayer and a talk. Sit anywhere, leave anytime.</span>
         </a>
-        <a class="tile" href="index.html#services">
+        <a class="tile" href="#campuses">
           <span class="tn">02</span><span class="tt">When &amp; where do you meet?</span>
           <span class="td">Two campuses — Margaret Drive and Jurong — across five languages.</span>
         </a>
-        <a class="tile" href="https://coos.org.sg/hello/">
+        <a class="tile" href="#children">
           <span class="tn">03</span><span class="tt">Can I bring my kids?</span>
           <span class="td">Yes. COOSkidz runs alongside every weekend service with secure check-in.</span>
         </a>
-        <a class="tile" href="https://coos.org.sg/hello/">
+        <a class="tile" href="#newcomer-form">
           <span class="tn">04</span><span class="tt">What if I want to go deeper?</span>
           <span class="td">Say hello, try Alpha, or find a group. Move at your own pace.</span>
         </a>
@@ -75,15 +75,13 @@
           <h2>You won't be singled out</h2>
           <p class="sub">We know walking into a church for the first time can feel daunting. So here's the honest
             version of what to expect — no surprises.</p>
-          <div class="cta-row"><a class="btn-solid" href="#what-to-expect">Read what to expect</a>
-          </div>
         </div>
         <div class="steps">
           <div class="step"><span class="sk">Arrive</span><span class="sd">Come ten minutes early. A host will meet you
               at the door and help you find a seat.</span></div>
           <div class="step"><span class="sk">The service</span><span class="sd">About 90 minutes. Songs, prayer, a talk.
               Stand or sit — whatever's comfortable.</span></div>
-          <div class="step"><span class="sk">Your children</span><span class="sd">COOSkidz runs alongside, with secure
+          <div class="step" id="children"><span class="sk">Your children</span><span class="sd">COOSkidz runs alongside, with secure
               check-in and a programme for their age.</span></div>
           <div class="step"><span class="sk">Afterwards</span><span class="sd">Say hello over coffee, or slip out
               quietly. Both are completely fine.</span></div>
@@ -91,17 +89,17 @@
       </div>
     </section>
 
-    <section>
+    <section id="campuses">
       <div class="sec-h">Two campuses</div>
       <h2>Everyone's welcome at either</h2>
-      <p class="sub">No registration needed. Just turn up. Hover over or select a campus to view its map and services.</p>
+      <p class="sub">No registration needed. Just turn up. Select a campus to view its map and services.</p>
       <div class="campus2">
         <button type="button" class="campus campus-picker" data-campus-dialog="margaret-dialog" aria-haspopup="dialog" aria-controls="margaret-dialog">
           <img class="campus-picker__photo" src="https://coos.org.sg/wp-content/uploads/2023/11/church_11zon-1-e1699603108451.jpg" alt="COOS congregation gathered for worship" loading="lazy">
           <span class="campus-picker__body">
             <span class="cn">Margaret Drive</span>
             <span class="ca">130 Margaret Drive, S149300</span>
-            <span class="cm">10 minutes from Queenstown MRT ? Parking on site</span>
+            <span class="cm">10 minutes from Queenstown MRT &middot; Parking on site</span>
             <span class="campus-picker__action">View map &amp; services <span aria-hidden="true">&#8599;</span></span>
           </span>
         </button>
@@ -110,7 +108,7 @@
           <span class="campus-picker__body">
             <span class="cn">COOS Jurong</span>
             <span class="ca">1 Venture Avenue #03-03, S608521</span>
-            <span class="cm">8 minutes from Jurong East MRT ? Carpark in building</span>
+            <span class="cm">8 minutes from Jurong East MRT &middot; Carpark in building</span>
             <span class="campus-picker__action">View map &amp; services <span aria-hidden="true">&#8599;</span></span>
           </span>
         </button>
@@ -133,7 +131,7 @@
 <fieldset class="welcome-step" data-welcome-step><legend>How can we reach you by phone? *</legend><input name="phone" aria-label="Mobile number" type="tel" autocomplete="tel" maxlength="40" required></fieldset>
 <fieldset class="welcome-step" data-welcome-step><legend>What is your email address? *</legend><input name="email" aria-label="Email address" type="email" autocomplete="email" maxlength="254" required></fieldset>
 <fieldset class="welcome-step" data-welcome-step><legend>Gender? *</legend><div class="welcome-options"><label><input type="radio" name="gender" value="0" required><span>Male</span></label><label><input type="radio" name="gender" value="1" required><span>Female</span></label></div></fieldset>
-<fieldset class="welcome-step" data-welcome-step><legend>Which service did you join? *</legend><div class="welcome-options"><label><input type="radio" name="service" value="0" required><span>Online service</span></label><label><input type="radio" name="service" value="1" required><span>Margaret Drive ? Saturday 2.30pm</span></label><label><input type="radio" name="service" value="2" required><span>Margaret Drive ? Saturday 4.30pm (Youth)</span></label><label><input type="radio" name="service" value="3" required><span>Margaret Drive ? Sunday 8.30am</span></label><label><input type="radio" name="service" value="4" required><span>Margaret Drive ? Sunday 10.45am</span></label><label><input type="radio" name="service" value="5" required><span>Jurong ? Sunday 10.45am</span></label><label><input type="radio" name="service" value="6" required><span>Other</span></label></div><label class="welcome-other">Other service (optional)<input name="other_service" maxlength="200"></label></fieldset>
+<fieldset class="welcome-step" data-welcome-step><legend>Which service did you join? *</legend><div class="welcome-options"><label><input type="radio" name="service" value="0" required><span>Online service</span></label><label><input type="radio" name="service" value="1" required><span>Margaret Drive &middot; Saturday 2.30pm</span></label><label><input type="radio" name="service" value="2" required><span>Margaret Drive &middot; Saturday 4.30pm (Youth)</span></label><label><input type="radio" name="service" value="3" required><span>Margaret Drive &middot; Sunday 8.30am</span></label><label><input type="radio" name="service" value="4" required><span>Margaret Drive &middot; Sunday 10.45am</span></label><label><input type="radio" name="service" value="5" required><span>Jurong &middot; Sunday 10.45am</span></label><label><input type="radio" name="service" value="6" required><span>Other</span></label></div><label class="welcome-other">Other service (optional)<input name="other_service" maxlength="200"></label></fieldset>
 <fieldset class="welcome-step" data-welcome-step><legend>What would you like to explore? *</legend><p class="welcome-hint">Choose one or more interests.</p><div class="welcome-options"><label><input type="checkbox" name="interests" value="0"><span>Exploring Christianity</span></label><label><input type="checkbox" name="interests" value="1"><span>Baptism classes</span></label><label><input type="checkbox" name="interests" value="2"><span>Prayer, counselling or care</span></label><label><input type="checkbox" name="interests" value="3"><span>Fellowship and community at COOS</span></label><label><input type="checkbox" name="interests" value="4"><span>Community outreach</span></label><label><input type="checkbox" name="interests" value="5"><span>None at the moment</span></label><label><input type="checkbox" name="interests" value="6"><span>Something else</span></label></div></fieldset>
 <fieldset class="welcome-step" data-welcome-step><legend>Anything else you would like us to know?</legend><p class="welcome-hint">Share a little about yourself or your visit. This question is optional.</p><textarea name="message" aria-label="Additional details" rows="4" maxlength="2000"></textarea></fieldset>
 <fieldset class="welcome-step" data-welcome-step><legend>Thank you for getting to know us.</legend><p>In the live form, your details help the COOS team welcome you and follow up on your interests.</p><label class="welcome-consent"><input name="consent" type="checkbox" required><span>I agree that COOS may use my details to contact me about my visit and selected interests. *</span></label><p class="welcome-hint">This is a UI preview. Nothing will be sent or saved.</p></fieldset>
@@ -210,7 +208,7 @@
             <div class="timing-grid">
               <div class="timing-pill">
                 <span class="timing-lang">English Service</span>
-                <div class="service-time-row"><span class="service-day">Sunday</span><span class="service-time">10.30am</span></div>
+                <div class="service-time-row"><span class="service-day">Sunday</span><span class="service-time">10.45am</span></div>
               </div>
             </div>
             <p class="schedule-heading schedule-heading--secondary">Explore faith</p>

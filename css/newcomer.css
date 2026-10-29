@@ -607,49 +607,20 @@ h2+.sub {
   .newcomer-page .campus-dialog .map-iframe { height: 210px; }
 }
 
-/* Newcomer enquiry form. */
-.newcomer-page .newcomer-form-layout { display: grid; grid-template-columns: .85fr 1.3fr; gap: 44px; align-items: start; }
-.newcomer-page .newcomer-form { display: grid; gap: 20px; padding: 28px; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
-.newcomer-page .newcomer-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 16px; }
-.newcomer-page .form-field { display: grid; gap: 8px; min-width: 0; }
-.newcomer-page .form-field label { font-size: 14px; font-weight: 600; }
-.newcomer-page .form-field label span { font-weight: 400; color: var(--ink-soft); }
-.newcomer-page .form-field :is(input, select, textarea) { width: 100%; min-height: 46px; padding: 11px 12px; border: 1px solid #bcb6ac; border-radius: 8px; background: #fff; color: var(--ink); font: inherit; font-size: 16px; }
-.newcomer-page .form-field textarea { resize: vertical; }
-.newcomer-page .newcomer-form :is(input, select, textarea):focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
-.newcomer-page .form-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; cursor: pointer; }
-.newcomer-page .form-consent input { width: 20px; height: 20px; margin-top: 1px; flex-shrink: 0; accent-color: var(--coral); }
-.newcomer-page .form-note { font-size: 13px; line-height: 1.6; color: var(--ink-soft); }
-.newcomer-page .form-note a { color: var(--coral-dark); text-decoration: underline; text-underline-offset: 3px; }
-.newcomer-page .newcomer-form button { border: 0; font: inherit; font-weight: 600; min-height: 46px; justify-self: start; }
-.newcomer-page .newcomer-form button:disabled { background: var(--cream-2); color: var(--ink-soft); cursor: not-allowed; }
-@media (max-width: 860px) { .newcomer-page .newcomer-form-layout { grid-template-columns: 1fr; gap: 28px; } }
-@media (max-width: 520px) { .newcomer-page .newcomer-form-grid { grid-template-columns: 1fr; } .newcomer-page .newcomer-form { padding: 20px; } }
-
-.newcomer-page .form-interests { border: 0; padding: 0; min-width: 0; }
-.newcomer-page .form-interests legend { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
-.newcomer-page .form-interests legend span { color: var(--ink-soft); font-weight: 400; }
-.newcomer-page .form-interest-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.newcomer-page .form-interest-options label { display: flex; align-items: center; gap: 10px; font-size: 14px; cursor: pointer; }
-.newcomer-page .form-interest-options input { width: 18px; height: 18px; accent-color: var(--coral); flex-shrink: 0; }
-.newcomer-page .newcomer-form button { cursor: pointer; }
-.newcomer-page [data-form-status]:empty { display: none; }
-@media (max-width: 520px) { .newcomer-page .form-interest-options { grid-template-columns: 1fr; } }
-
 /* Card-style welcome flow inspired by the COOS visitor form. */
-.newcomer-page .welcome-experience { padding: clamp(20px,5vw,56px); border-radius: 18px; background: #e46e10 url('https://www.jotform.com/uploads/guest_b5a2ce2d9d81a203/form_files/COOS%20Welcome%202023-05-17%20v4.6464521a251968.89934865.png?width=2048') center / cover; }
+.newcomer-page .welcome-experience { padding: clamp(20px,5vw,56px); border-radius: 18px; background: var(--cream-2); border: 1px solid var(--line); }
 .newcomer-page .welcome-experience [hidden] { display: none !important; }
-.newcomer-page :is(.welcome-intro-card,.welcome-card-form,.welcome-complete) { max-width: 680px; margin: auto; padding: clamp(24px,4vw,48px); background: #fff; border-radius: 6px; box-shadow: 0 8px 30px #0002; color: #323232; font-family: Roboto,Arial,sans-serif; }
+.newcomer-page :is(.welcome-intro-card,.welcome-card-form,.welcome-complete) { max-width: 680px; margin: auto; padding: clamp(24px,4vw,48px); background: #fff; border-radius: 6px; box-shadow: 0 8px 30px #0002; color: var(--ink); font-family: var(--font-body); }
 .newcomer-page .welcome-intro-card { text-align: center; }
 .newcomer-page .welcome-intro-card img { width: 100%; max-height: 260px; object-fit: contain; margin: 0 auto 24px; }
 .newcomer-page .welcome-intro-card h2 { font-size: clamp(28px,4vw,38px); }
 .newcomer-page .welcome-intro-card p { margin: 20px auto; max-width: 46ch; line-height: 1.6; }
 .newcomer-page .welcome-count { display: block; color: #777; margin-bottom: 22px; font-size: 14px; }
 .newcomer-page .welcome-intro-card small { display: block; margin-top: 20px; color: #666; font-size: 12px; }
-.newcomer-page .welcome-primary { background: #e46e10; color: #fff; border: 0; padding: 14px 30px; min-height: 48px; border-radius: 4px; font: inherit; font-weight: 600; cursor: pointer; }
-.newcomer-page .welcome-primary:hover { background: #b95000; }
+.newcomer-page .welcome-primary { background: var(--coral); color: #fff; border: 0; padding: 14px 30px; min-height: 48px; border-radius: 4px; font: inherit; font-weight: 600; cursor: pointer; }
+.newcomer-page .welcome-primary:hover { background: var(--coral-dark); }
 .newcomer-page .welcome-progress { display: flex; gap: 20px; align-items: center; font-size: 13px; color: #666; margin-bottom: 32px; }
-.newcomer-page .welcome-progress progress { flex: 1; height: 6px; accent-color: #e46e10; }
+.newcomer-page .welcome-progress progress { flex: 1; height: 6px; accent-color: var(--coral); }
 .newcomer-page .welcome-step { border: 0; padding: 0; min-width: 0; min-height: 250px; }
 .newcomer-page .welcome-step legend { font-size: clamp(23px,3vw,30px); font-weight: 500; line-height: 1.35; margin-bottom: 24px; }
 .newcomer-page .welcome-step :is(input:not([type=radio]):not([type=checkbox]),textarea) { width: 100%; border: 1px solid #bbb; border-radius: 4px; padding: 14px; background: #fff; font: inherit; min-height: 48px; }
@@ -657,8 +628,8 @@ h2+.sub {
 .newcomer-page .welcome-hint { font-size: 14px; color: #666; line-height: 1.6; margin: 14px 0; }
 .newcomer-page .welcome-options { display: grid; gap: 10px; }
 .newcomer-page .welcome-options label { display: flex; align-items: center; gap: 12px; border: 1px solid #ddd; border-radius: 4px; padding: 12px 14px; min-height: 48px; font-size: 15px; cursor: pointer; }
-.newcomer-page .welcome-options label:has(input:checked) { border-color: #e46e10; background: #fff4eb; }
-.newcomer-page .welcome-step :is(input[type=radio],input[type=checkbox]) { width: 20px; height: 20px; flex-shrink: 0; accent-color: #e46e10; }
+.newcomer-page .welcome-options label:has(input:checked) { border-color: var(--coral); background: var(--cream-2); }
+.newcomer-page .welcome-step :is(input[type=radio],input[type=checkbox]) { width: 20px; height: 20px; flex-shrink: 0; accent-color: var(--coral); }
 .newcomer-page .welcome-other { display: grid; gap: 8px; margin-top: 16px; font-size: 14px; }
 .newcomer-page .welcome-consent { display: flex; align-items: flex-start; gap: 12px; margin: 24px 0; font-size: 15px; }
 .newcomer-page .welcome-navigation { display: flex; justify-content: space-between; gap: 16px; margin-top: 24px; padding-top: 24px; border-top: 1px solid #eee; }
@@ -666,5 +637,10 @@ h2+.sub {
 .newcomer-page .welcome-preview { margin-top: 18px; text-align: center; color: #777; font-size: 12px; }
 .newcomer-page .welcome-error { color: #a51f12; font-size: 14px; }
 .newcomer-page .welcome-complete p { margin: 24px 0; }
-.newcomer-page .welcome-experience :is(input,textarea,button):focus-visible { outline: 3px solid #984100; outline-offset: 3px; }
+.newcomer-page .welcome-experience :is(input,textarea,button):focus-visible { outline: 3px solid var(--coral-dark); outline-offset: 3px; }
 @media(max-width:520px) { .newcomer-page .welcome-experience { padding: 12px; } .newcomer-page .welcome-primary { padding: 12px 18px; } }
+
+.newcomer-page :is(#campuses, #children, #newcomer-form) { scroll-margin-top: 82px; }
+.newcomer-page .welcome-experience :is(h2, legend) { font-family: var(--font-disp); }
+.newcomer-page .campus-picker { transition: border-color .2s ease, box-shadow .2s ease; }
+.newcomer-page .campus-picker:is(:hover, :focus-visible) { border-color: var(--coral); box-shadow: 0 6px 20px rgba(38,36,31,.08); }

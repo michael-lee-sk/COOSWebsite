@@ -1,50 +1,14 @@
-/* Native modal dialogs provide focus containment and Escape dismissal. */
+/* Campus details open deliberately by click, tap, or keyboard activation. */
 (() => {
   document.querySelectorAll('[data-campus-dialog]').forEach(trigger => {
     const dialog = document.getElementById(trigger.dataset.campusDialog);
     if (!dialog) return;
-    const hoverPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-    let hoverTimer;
-    let closeTimer;
-    let openedByHover = false;
-    function openCampus(fromHover = false) {
-      clearTimeout(hoverTimer);
+    trigger.addEventListener('click', () => {
       if (dialog.open || document.querySelector('.campus-dialog[open]')) return;
       const map = dialog.querySelector('iframe[data-src]');
       if (map && !map.hasAttribute('src')) map.src = map.dataset.src;
-      openedByHover = fromHover;
       dialog.showModal();
       document.body.classList.add('campus-dialog-open');
-    }
-    trigger.addEventListener('click', () => openCampus(false));
-    trigger.addEventListener('pointerenter', event => {
-      if (hoverPointer.matches && event.pointerType === 'mouse') {
-        hoverTimer = setTimeout(() => openCampus(true), 300);
-      }
-    });
-    trigger.addEventListener('pointerleave', () => clearTimeout(hoverTimer));
-    trigger.addEventListener('pointercancel', () => clearTimeout(hoverTimer));
-    dialog.addEventListener('pointerenter', () => clearTimeout(closeTimer));
-    dialog.addEventListener('pointerleave', event => {
-      if (openedByHover && event.pointerType === 'mouse') {
-        closeTimer = setTimeout(() => dialog.close(), 200);
-      }
-    });
-    // A modal backdrop covers the card: allow travel to the popup, then close
-    // if the mouse remains outside both the popup and its original card.
-    dialog.addEventListener('pointermove', event => {
-      if (!openedByHover || event.pointerType !== 'mouse') return;
-      const inside = element => {
-        const rect = element.getBoundingClientRect();
-        return event.clientX >= rect.left && event.clientX <= rect.right &&
-          event.clientY >= rect.top && event.clientY <= rect.bottom;
-      };
-      if (inside(dialog) || inside(trigger)) {
-        clearTimeout(closeTimer);
-        closeTimer = undefined;
-      } else if (!closeTimer) {
-        closeTimer = setTimeout(() => dialog.close(), 300);
-      }
     });
     dialog.querySelector('.campus-dialog__close').addEventListener('click', () => dialog.close());
     dialog.addEventListener('click', event => {
@@ -52,10 +16,6 @@
       if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
     });
     dialog.addEventListener('close', () => {
-      clearTimeout(hoverTimer);
-      clearTimeout(closeTimer);
-      closeTimer = undefined;
-      openedByHover = false;
       document.body.classList.remove('campus-dialog-open');
       trigger.focus();
     });
@@ -80,7 +40,7 @@
       step.disabled = index !== current;
     });
     back.textContent = current === 0 ? 'Back to welcome' : 'Previous';
-    next.textContent = current === steps.length - 1 ? 'Finish preview' : 'Next ?';
+    next.textContent = current === steps.length - 1 ? 'Finish preview' : 'Next \u2192';
     form.querySelector('[data-welcome-count]').textContent = `${current + 1} / ${steps.length}`;
     form.querySelector('progress').value = current + 1;
     error.textContent = '';
