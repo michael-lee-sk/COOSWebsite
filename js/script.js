@@ -4,57 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   
-  // 1. Mega-Menu Dropdowns (from new.html)
-  const items = [...document.querySelectorAll('[data-menu]')];
-  function closeAll(except) {
-    items.forEach(i => { if (i !== except) i.classList.remove('open'); });
-  }
-
-  items.forEach(item => {
-    const btn = item.querySelector('button');
-    if (!btn) return;
-
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      const isOpen = item.classList.contains('open');
-      closeAll();
-      item.classList.toggle('open', !isOpen);
-    });
-
-    item.addEventListener('mouseenter', () => {
-      if (window.innerWidth > 720) {
-        closeAll(item);
-        item.classList.add('open');
-      }
-    });
-
-    item.addEventListener('mouseleave', () => {
-      if (window.innerWidth > 720) {
-        item.classList.remove('open');
-      }
-    });
-  });
-
-  document.addEventListener('click', () => closeAll());
-
-  // Mobile Drawer Toggle
-  const mob = document.querySelector('[data-mobile]');
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      closeAll();
-      if (mob) mob.classList.remove('open');
-    }
-  });
-
-  const burger = document.querySelector('[data-burger]');
-  if (burger && mob) {
-    burger.addEventListener('click', () => mob.classList.toggle('open'));
-  }
-
-  document.querySelectorAll('.m-sec > button').forEach(b => {
-    b.addEventListener('click', () => b.parentElement.classList.toggle('open'));
-  });
-
   // 2. Cookie Consent Banner Handling
   const cookieBanner = document.getElementById('cookieBanner');
   const cookieDecline = document.getElementById('cookieDecline');
@@ -146,13 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* Phase 1: progressive enhancement. Existing handlers remain intact. */
 document.addEventListener('DOMContentLoaded', () => {
-  const nav = document.querySelector('.nav');
-  if (nav) {
-    const updateNav = () => nav.classList.toggle('is-scrolled', window.scrollY > 16);
-    updateNav();
-    window.addEventListener('scroll', updateNav, { passive: true });
-  }
-
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const sections = [...document.querySelectorAll('[data-reveal-section]')];
   if (!reducedMotion && 'IntersectionObserver' in window) {
@@ -172,21 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Reflect menu state for assistive technologies without altering the original controls.
-  document.querySelectorAll('[data-menu] > button, .m-sec > button').forEach(button => {
-    button.setAttribute('aria-expanded', String(button.parentElement.classList.contains('open')));
-  });
-  const syncMenuState = () => {
-    document.querySelectorAll('[data-menu] > button, .m-sec > button').forEach(button => {
-      button.setAttribute('aria-expanded', String(button.parentElement.classList.contains('open')));
-    });
-  };
-  document.addEventListener('click', syncMenuState);
-  document.addEventListener('keydown', event => { if (event.key === 'Escape') syncMenuState(); });
+
 });
 
 
-/* Homepage V2: progress, accessible mobile navigation, and story position. */
+/* Homepage V2: reading progress and story position. */
 document.addEventListener('DOMContentLoaded', () => {
   if (!document.body.classList.contains('homepage-v2')) return;
   const progress = document.querySelector('.reading-progress span');
@@ -201,28 +133,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
   window.addEventListener('resize', updateProgress, { passive: true });
   updateProgress();
-
-  const burger = document.querySelector('[data-burger]');
-  const mobile = document.querySelector('[data-mobile]');
-  const syncNavigation = () => {
-    if (burger && mobile) burger.setAttribute('aria-expanded', String(mobile.classList.contains('open')));
-    document.querySelectorAll('[data-menu] > button, .m-sec > button').forEach(button => {
-      button.setAttribute('aria-expanded', String(button.parentElement.classList.contains('open')));
-    });
-  };
-  if (burger && mobile) {
-    burger.setAttribute('aria-controls', 'coos-mobile-menu');
-    mobile.id = 'coos-mobile-menu';
-    burger.setAttribute('aria-expanded', 'false');
-    mobile.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      mobile.classList.remove('open'); syncNavigation();
-    }));
-  }
-  document.addEventListener('click', syncNavigation);
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') { syncNavigation(); burger?.focus(); }
-  });
-  syncNavigation();
 
   const steps = [...document.querySelectorAll('#scrolly [data-step]')];
   const counter = document.querySelector('[data-story-counter]');

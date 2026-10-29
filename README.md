@@ -4,9 +4,7 @@ A static welcome website for the Church of Our Saviour (COOS) in Singapore. It i
 
 ## Launch the website
 
-### Open the page directly
-
-Open `html/index.html` in a web browser. This is enough to view the page, though a local web server is recommended for the most reliable behavior with browser features and embedded content.
+The shared navbar is loaded from an HTML partial with JavaScript. Use Live Server or a local HTTP server; opening the files directly with `file://` will show only the basic fallback navigation.
 
 ### Run a local web server
 
@@ -38,9 +36,13 @@ An internet connection is needed for externally hosted fonts, images, maps, and 
 
 ## Project files
 
-- `html/` — `index.html` and `new (1) copy.html`
+- `html/` — `index.html`, `newcomer.html`, and `partials/navbar.html` (shared navigation markup)
 - `css/styles.css` — layout, responsive styling, and visual design
+- `js/navbar.js` ? loads the shared navbar and handles desktop/mobile navigation on both pages
+- `css/newcomer.css` ? newcomer page styles
 - `js/script.js` — menu behavior, scroll storytelling, ministry scrolling, and cookie-choice storage
 - `images/coos-logo.png` — COOS logo used by the welcome page
 
 Some menu items, event cards, and footer links currently point to sections on this page or act as placeholders rather than opening separate pages or submitting forms.
+
+Edit `html/partials/navbar.html` to update navigation on both pages. Links in this partial resolve relative to the pages in `html/`. The newcomer link is marked active only on `newcomer.html`.

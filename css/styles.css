@@ -242,6 +242,29 @@ img {
   border-bottom: 1px solid var(--line);
 }
 
+.nav,
+.mobile {
+  font-family: var(--font-body);
+}
+
+.navbar-placeholder {
+  min-height: 68px;
+  background: var(--cream);
+}
+
+.navbar-placeholder nav {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 12px 24px;
+}
+
+.mobile .m-link.active {
+  color: var(--coral);
+}
+
 .nav__inner {
   max-width: 1440px;
   margin: 0 auto;
